@@ -7,6 +7,11 @@ top; older releases grow downward).
 
 ## Unreleased
 
+### Added
+
+- **products/starter**: `ONBOARD.md` + `workflows/*.yml.template` (thin gate
+  reusable + maintain + `install-agent-runner`)
+
 ### Changed
 
 - **scm/github**: document maintain `workflows: write` (required to push

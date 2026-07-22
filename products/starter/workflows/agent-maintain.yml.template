@@ -1,0 +1,113 @@
+# Maintain — product wrapper (toolchain stays here; runner install is shared)
+#
+# Replace __TARGET_ID__ and __RUNNER_TAG__.
+# Edit the "Product toolchain" block for verify.md needs.
+# Copy to: .github/workflows/agent-maintain.yml
+#
+# Also mirror permissions + toolchain + install-agent-runner on push-to-main
+# in ci.yml.
+
+name: agent-maintain
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "dry-run (plan only) or ship (Issues / fix PRs / reconcile)"
+        required: true
+        type: choice
+        options:
+          - dry-run
+          - ship
+        default: dry-run
+  issue_comment:
+    types: [created]
+
+concurrency:
+  group: agent-maintain
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  workflows: write
+
+jobs:
+  agent-maintain:
+    name: Agent maintain (main)
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      (
+        github.event_name == 'issue_comment' &&
+        !github.event.issue.pull_request &&
+        github.event.comment.user.type != 'Bot' &&
+        contains(join(github.event.issue.labels.*.name, ','), 'agent')
+      )
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    env:
+      CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}
+      AGENT_MAINTAIN_MODEL: ${{ vars.AGENT_MAINTAIN_MODEL || vars.CURSOR_AGENT_MODEL || vars.CURSOR_DEP_MODEL || vars.CURSOR_REV_MODEL || vars.CURSOR_VUL_MODEL }}
+      AGENT_SCM: github
+      GH_TOKEN: ${{ github.token }}
+      # BUF_TOKEN: ${{ secrets.BUF_TOKEN }}   # uncomment if verify needs BSR
+      GIT_AUTHOR_NAME: agent
+      GIT_AUTHOR_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+      GIT_COMMITTER_NAME: agent
+      GIT_COMMITTER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+      AGENT_WAKE_ISSUE: ${{ github.event.issue.number }}
+    steps:
+      - name: Check secrets and vars
+        run: |
+          set -euo pipefail
+          if [ -z "${CURSOR_API_KEY:-}" ]; then
+            echo "::error::Missing secret CURSOR_API_KEY"
+            exit 1
+          fi
+          if [ -z "${AGENT_MAINTAIN_MODEL:-}" ]; then
+            echo "::error::Missing variable AGENT_MAINTAIN_MODEL (or CURSOR_*_MODEL fallback)"
+            exit 1
+          fi
+          echo "AGENT_MAINTAIN_MODEL=$AGENT_MAINTAIN_MODEL wake_issue=${AGENT_WAKE_ISSUE:-none}"
+
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          submodules: true
+          fetch-depth: 0
+          token: ${{ github.token }}
+
+      - name: Configure git
+        run: |
+          set -euo pipefail
+          git config user.name "$GIT_AUTHOR_NAME"
+          git config user.email "$GIT_AUTHOR_EMAIL"
+
+      # --- Product toolchain (edit for this repo) ---
+      # Example: setup-go / setup-python / rust-toolchain / pnpm install
+      # --- end product toolchain ---
+
+      - name: Install agent runner
+        id: runner
+        uses: amsokol/ai-devsecops-cursor/.github/actions/install-agent-runner@__RUNNER_TAG__
+        with:
+          runner_ref: ${{ vars.AGENT_RUNNER_REF || '__RUNNER_TAG__' }}
+
+      - name: Agent-maintain dry-run
+        if: github.event_name == 'workflow_dispatch' && inputs.mode == 'dry-run'
+        working-directory: ${{ steps.runner.outputs.path }}
+        env:
+          TARGET_PATH: ${{ github.workspace }}
+          TARGET_ID: __TARGET_ID__
+        run: uv run agent-maintain --dry-run
+
+      - name: Agent-maintain ship
+        if: >
+          github.event_name == 'issue_comment' ||
+          (github.event_name == 'workflow_dispatch' && inputs.mode == 'ship')
+        working-directory: ${{ steps.runner.outputs.path }}
+        env:
+          TARGET_PATH: ${{ github.workspace }}
+          TARGET_ID: __TARGET_ID__
+        run: uv run agent-maintain
