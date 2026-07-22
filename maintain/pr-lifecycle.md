@@ -27,7 +27,9 @@ when there is nothing safe to ship for that class.
 2. Dry-run: do not mutate git; still note the rule.
 3. Apply only **verified** fixes for **this track’s class** (`verify.md`).
 4. Push and create/update **that** change request; body lists only findings this
-   PR remediates, quarantine notes, verify commands + results.
+   PR remediates, **Coupled bundles**, **Pending quarantine** (versions seen but
+   not adopted: publish + clears ~time; use `- none` when empty — see
+   [`quarantine.md`](../policy/quarantine.md)), verify commands + results.
 5. `Closes #N` / equivalent only for Issues this PR actually fixes. Do not close
    a security Issue from a routine PR (or the reverse).
 6. Never force-push onto an open fix track branch.
