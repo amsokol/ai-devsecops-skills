@@ -1,7 +1,8 @@
 # Onboard a product target
 
-Checklist to wire [ai-devsecops-cursor](https://github.com/amsokol/ai-devsecops-cursor)
-+ this skill library into a new GitHub product repo.
+Checklist to wire
+[ai-devsecops-cursor](https://github.com/amsokol/ai-devsecops-cursor) and this
+skill library into a new GitHub product repo.
 
 ## 1. Skill library submodule
 
@@ -17,15 +18,15 @@ git add .cursor/agent/library
 
 Copy overlay templates (see [README.md](README.md)):
 
-- `.cursor/agent/POLICY.md` — enabled ecosystems
-- `.cursor/agent/quarantine.md` — duration **N**
-- `.cursor/agent/verify.md` — change-scoped verify commands
++ `.cursor/agent/POLICY.md` — enabled ecosystems
++ `.cursor/agent/quarantine.md` — duration **N**
++ `.cursor/agent/verify.md` — change-scoped verify commands
 
 ## 2. GitHub Actions settings
 
-**Settings → Actions → General → Workflow permissions**
+Path: Settings → Actions → General → Workflow permissions
 
-- ✅ Allow GitHub Actions to create and approve pull requests
++ Allow GitHub Actions to create and approve pull requests
 
 ## 3. Secrets and variables
 
@@ -56,9 +57,9 @@ Copy templates from [`workflows/`](workflows/) into `.github/workflows/`:
 
 Replace placeholders:
 
-- `__TARGET_ID__` — product id (matches overlay / `TARGET_ID`)
-- `__RUNNER_TAG__` — same as `AGENT_RUNNER_REF` (e.g. `v0.3.2`)
-- Maintain **toolchain block** — Go/Rust/pnpm/etc. needed for `verify.md`
++ `__TARGET_ID__` — product id (matches overlay / `TARGET_ID`)
++ `__RUNNER_TAG__` — same as `AGENT_RUNNER_REF` (e.g. `v0.3.2`)
++ Maintain **toolchain block** — Go/Rust/pnpm/etc. needed for `verify.md`
 
 Also embed a maintain job on `push` to `main` in product `ci.yml` (same
 permissions + toolchain + `install-agent-runner` pattern).
