@@ -5,9 +5,7 @@ Versions follow [SemVer](https://semver.org/) as described in `README.md`.
 
 ## [Unreleased]
 
-## [0.1.0] — 2026-07-22
-
-Initial catalog.
+### Added
 
 - Policy: signals, quarantine (approach), holds, grouping, bundles
 - Gate / maintain procedures, scenarios, SCM (GitHub, GitLab)
