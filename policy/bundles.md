@@ -66,6 +66,8 @@ coupling — infer the bundle, then **name it** in the plan.
 - Bumping one manifest and leaving a coupled plugin / lock / codegen pin old
 - Reporting one member as candidate and another as hold within the same bundle
 - Splitting a bundle across PRs unless explicitly staged (document risk)
+- Shipping a security fix for one member while siblings stay on the old train
+  (unless an explicit human partial exception applies)
 
 ## Reporting
 
@@ -80,6 +82,29 @@ When any bundle exists:
 ```
 
 **Bundle rule:** no member of a blocked bundle may be bumped alone.
+
+## Security / advisories
+
+Bundles apply to **security remediations the same way** as routine catalog bumps.
+Security does **not** justify a partial bundle move.
+
+1. **Vulnerable pin is a bundle member** (direct pin you would change to remediate):
+   remediation is the **whole bundle** on one agreed version family — bump **all**
+   members, regen, refresh all affected lockfiles, verify once. Ship on the
+   **security** track (`fix/agent-security`). Sibling member bumps required only
+   to keep the train aligned are part of that remediation, not “routine catalog”.
+2. **Cannot unlock the whole bundle** (a sibling has no safe/cleared version, a
+   hold remains, quarantine blocks a member, unlock evidence incomplete):
+   **do not ship** any partial fix (no solo pin bump, no override that effectively
+   moves only one member while siblings stay on the old train). Keep the Issue
+   open; report **blocked on bundle** with which members/conditions are unmet.
+3. **Transitive-only remediation** (e.g. lock override / resolution pin) that does
+   **not** change any declared bundle member pin is **not** a partial bundle bump —
+   allowed when it fully addresses the advisory and passes `verify.md`. If the
+   only real fix requires changing a member pin, fall back to (1)–(2).
+
+Explicit human exception (`security ok` / named advisory + documented partial
+allowance) is required to deviate; never invent one.
 
 ## Relation to [`grouping.md`](../policy/grouping.md)
 

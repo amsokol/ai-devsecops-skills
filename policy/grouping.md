@@ -55,8 +55,8 @@ Security advisories are always the **security** track, regardless of tier.
 - **PR group** (this file): how many bumps share one review story.
 
 A single unlocked bundle that spans ecosystems or codegen is usually **one PR**,
-even if grouping would otherwise split ecosystems — but still on the
-**routine** track unless the only change is a security remediation.
+even if grouping would otherwise split ecosystems — on the **security** track
+when the move is a vuln remediation, otherwise on the **routine** track.
 
 ## When the list is huge
 

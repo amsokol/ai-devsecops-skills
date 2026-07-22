@@ -42,6 +42,10 @@ when there is nothing safe to ship for that class.
 
 - Minimal remediation for open `deps-vuln` / `code-vuln` findings (pin bump,
   override, or small code change required by the advisory / vuln).
+- When the vulnerable pin is a **bundle member**, the minimal remediation is the
+  **whole bundle** (all members + regen/locks) — still security track, not routine.
+  If the bundle cannot fully unlock, do **not** ship a partial fix
+  ([`../policy/bundles.md`](../policy/bundles.md)).
 - Do **not** include unrelated catalog bumps, tooling updates, or non-security
   findings — even if they also cleared quarantine.
 

@@ -7,6 +7,15 @@ top; older releases grow downward).
 
 ## Unreleased
 
+## 0.1.3 - 2026-07-22
+
+### Changed
+
+- Bundles apply to security the same as routine: vuln on a member → ship the
+  **whole** unlocked bundle on `fix/agent-security`; if the bundle cannot fully
+  unlock, block partial fixes and leave the Issue **blocked on bundle**
+  (`policy/bundles.md`, `capabilities/deps-vuln.md`, maintain track/findings).
+
 ## 0.1.2 - 2026-07-22
 
 ### Changed

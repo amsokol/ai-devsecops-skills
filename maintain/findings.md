@@ -41,6 +41,10 @@ Link remediation PRs by class ([`pr-lifecycle.md`](pr-lifecycle.md)):
 
 A PR may `Closes` only Issues it actually remediates.
 
+When a `deps-vuln` fix is **blocked on bundle**, keep the Issue open and record
+which members/unlock conditions are unmet (see
+[`../policy/bundles.md`](../policy/bundles.md) security section).
+
 ## Reconcile (this checkout only)
 
 1. List open issues with label `agent`.
