@@ -7,6 +7,13 @@ top; older releases grow downward).
 
 ## Unreleased
 
+### Changed
+
+- Report **Pending quarantine** (versions seen but not adopted; publish + clear
+  time) in maintain reports and gate reviews; do not ship lock refreshes that
+  introduce in-window pins (`policy/quarantine.md`, `capabilities/deps-policy.md`,
+  `gate/change-review.md`, `scenarios/maintain.md`, `maintain/pr-lifecycle.md`)
+
 ## 0.1.6 - 2026-07-22
 
 ### Changed

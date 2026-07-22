@@ -11,6 +11,8 @@ bumps, refresh locks). Do not invent ecosystems that are not enabled.
 - Only pins / lockfile entries **changed in the PR** for enabled ecosystems.
 - Fresh pins inside the quarantine window → policy breach on the change.
 - Unmet holds / partial bundle unlocks on changed pins → block.
+- Always list **Pending quarantine** (changed entries still inside the window,
+  and any noted wait targets) per [`quarantine.md`](../policy/quarantine.md).
 
 ## Maintain
 
@@ -21,3 +23,9 @@ bumps, refresh locks). Do not invent ecosystems that are not enabled.
 - Propose bumps only to versions that cleared quarantine, holds, and bundle
   rules; group per [`grouping.md`](../policy/grouping.md). Ship on the **routine**
   track (`fix/agent`) only — never batch into a security PR.
+- After lock refresh, **re-check publish times** for every new/changed lock
+  entry. If any remain inside the window, do **not** ship that PR (wait or
+  constrain resolution).
+- Report **Pending quarantine**: newer registry versions (and blocked lock
+  entries) still inside the window — package, version, published, clears ~time
+  ([`quarantine.md`](../policy/quarantine.md)). Include even when nothing ships.

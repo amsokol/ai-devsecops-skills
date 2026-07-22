@@ -33,3 +33,35 @@ On gate (PR changes pins only):
 
 Document near the pin (see [`holds.md`](holds.md)) or in the Issue/PR body.
 Exception must name the advisory / CVE and the pin.
+
+## Pending quarantine (reporting)
+
+Always surface versions you **saw** but **did not adopt** because they are still
+inside the window (direct candidates **and** lock/transitive entries that a
+cleared bump would introduce).
+
+In maintain reports and gate review bodies, include a short section:
+
+```markdown
+## Pending quarantine
+- none
+```
+
+or one bullet per item (no wide tables):
+
+```markdown
+## Pending quarantine
+- `syn` 3.0.3 (cargo lock) — published 2026-07-22T00:35Z, clears ~2026-07-24T00:35Z
+- `serde` 1.0.229 — cleared; listed only if still waiting on a held sibling/lock entry
+```
+
+Each bullet: package (ecosystem/surface), version, publish time, **approx clear
+time** (`published + N`). Omit packages already shipped this run.
+
+**Maintain:** do **not** ship a fix PR whose lock refresh introduces any entry
+still inside the window (same rule as adopting that pin on HEAD). Prefer wait,
+or constrain resolution to a cleared version when the ecosystem allows.
+
+**Gate:** every **changed** pin/lock entry inside the window is a fail; list them
+under Pending quarantine as well as under deps-policy Fail.
+

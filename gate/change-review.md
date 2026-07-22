@@ -79,6 +79,13 @@ Template:
 ### deps-vuln — Pass | N/A | Fail
 …
 
+## Coupled bundles
+- none | or short bullets (id, members, status)
+
+## Pending quarantine
+- none | or one bullet per version still inside the window
+  (`pkg` ver — published …, clears ~…)
+
 ## Threads
 - none | or short bullets
 
@@ -91,3 +98,6 @@ Rules:
 - Use **N/A** when the capability does not apply (e.g. no manifest changes).
 - Put evidence in **inline review threads** on the line, not in a giant table cell.
 - No screenshots, no HTML, no pasted logs longer than a few lines.
+- **Pending quarantine** and **Coupled bundles**: always include; use `- none` when
+  empty. Details: [`../policy/quarantine.md`](../policy/quarantine.md),
+  [`../policy/bundles.md`](../policy/bundles.md).

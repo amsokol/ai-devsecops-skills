@@ -32,8 +32,13 @@ ecosystems listed in `../../POLICY.md`.
 5. Ship: safe verified fixes ([`verify.md`](../products/starter/overlay/verify.md.template), [`grouping.md`](../policy/grouping.md)) →
    **security** and/or **routine** fix tracks ([`pr-lifecycle.md`](../maintain/pr-lifecycle.md));
    never mix security with routine in one change request. Security first when both
-   apply. Reconcile/close Issues when gone on **this** tree.
+   apply. Do **not** ship a lock refresh that introduces pins still inside
+   quarantine ([`quarantine.md`](../policy/quarantine.md)). Reconcile/close Issues when
+   gone on **this** tree.
 6. Report: short headings/lists (not wide tables) + change-request / issue URLs.
+   Always include **Coupled bundles** and **Pending quarantine** (use `- none`
+   when empty) — newer versions (and blocked lock entries) still inside the
+   window, with publish time and approx clear time.
 
 ## Signals
 
