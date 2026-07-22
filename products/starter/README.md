@@ -6,6 +6,9 @@ use symlinks or copy the full catalog.
 See the [library README](../../README.md). Shared entry:
 [`policy/entry.md`](../../policy/entry.md).
 
+**Full checklist** (secrets, ruleset, workflows, `workflows: write`):
+[`ONBOARD.md`](ONBOARD.md).
+
 ## Overlay (product-only)
 
 Copy templates, then edit:
@@ -25,6 +28,13 @@ cp .cursor/agent/library/products/starter/overlay/quarantine.md.template \
 
 Do not restate gate/maintain procedures or the standard skill list — they live
 in `library/policy/entry.md` and the catalog.
+
+## Workflows
+
+Copy [`workflows/*.yml.template`](workflows/) into the product
+`.github/workflows/`, replace `__TARGET_ID__` / `__RUNNER_TAG__`, and fill the
+maintain toolchain block. Gate calls the runner reusable workflow; maintain uses
+the `install-agent-runner` composite after product setup.
 
 ## Branch ruleset (GitHub)
 

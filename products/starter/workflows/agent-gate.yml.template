@@ -1,0 +1,68 @@
+# PR gate — thin product wrapper
+#
+# Replace __TARGET_ID__ and __RUNNER_TAG__ (keep AGENT_RUNNER_REF in sync).
+# Copy to: .github/workflows/agent-gate.yml
+
+name: agent-gate
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  issue_comment:
+    types: [created]
+  pull_request_review_comment:
+    types: [created]
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "dry-run (plan only) or ship (post review / APPROVE)"
+        required: true
+        type: choice
+        options:
+          - dry-run
+          - ship
+        default: dry-run
+      pr:
+        description: "Pull request number"
+        required: true
+        type: string
+
+concurrency:
+  group: >-
+    agent-gate-pr-${{
+      github.event.pull_request.number ||
+      github.event.issue.number ||
+      inputs.pr
+    }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  agent-gate:
+    name: Agent gate (PR review)
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      (
+        github.event_name == 'pull_request' &&
+        github.event.pull_request.head.repo.full_name == github.repository
+      ) ||
+      (
+        github.event_name == 'issue_comment' &&
+        github.event.issue.pull_request &&
+        github.event.comment.user.type != 'Bot'
+      ) ||
+      (
+        github.event_name == 'pull_request_review_comment' &&
+        github.event.pull_request.head.repo.full_name == github.repository &&
+        github.event.comment.user.type != 'Bot'
+      )
+    uses: amsokol/ai-devsecops-cursor/.github/workflows/reusable-agent-gate.yml@__RUNNER_TAG__
+    with:
+      target_id: __TARGET_ID__
+      mode: ${{ github.event_name == 'workflow_dispatch' && inputs.mode || 'ship' }}
+      pr: ${{ inputs.pr || '' }}
+      runner_ref: ${{ vars.AGENT_RUNNER_REF || '__RUNNER_TAG__' }}
+    secrets: inherit
