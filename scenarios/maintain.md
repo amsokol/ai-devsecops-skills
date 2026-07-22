@@ -29,7 +29,9 @@ ecosystems listed in `../../POLICY.md`.
 2. Comment pass ([`holds.md`](../policy/holds.md)); discover bundles ([`bundles.md`](../policy/bundles.md)).
 3. Scan per capability skills (deps policy/vuln, code quality/vuln, …).
 4. Cluster findings; open/update Issues with stable keys ([`findings.md`](../maintain/findings.md)).
-5. Ship: safe verified fixes ([`verify.md`](../products/starter/overlay/verify.md.template), [`grouping.md`](../policy/grouping.md)) →
+5. Ship: safe verified fixes ([`../maintain/verify.md`](../maintain/verify.md) +
+   product [`verify.md`](../products/starter/overlay/verify.md.template),
+   [`grouping.md`](../policy/grouping.md)) →
    **security** and/or **routine** fix tracks ([`pr-lifecycle.md`](../maintain/pr-lifecycle.md));
    never mix security with routine in one change request. Security first when both
    apply. Do **not** ship a lock refresh that introduces pins still inside
@@ -38,7 +40,8 @@ ecosystems listed in `../../POLICY.md`.
 6. Report: short headings/lists (not wide tables) + change-request / issue URLs.
    Always include **Coupled bundles** and **Pending quarantine** (use `- none`
    when empty) — newer versions (and blocked lock entries) still inside the
-   window, with publish time and approx clear time.
+   window, with publish time and approx clear time. List which **verify
+   surfaces** ran (and which were skipped as out of scope).
 
 ## Signals
 

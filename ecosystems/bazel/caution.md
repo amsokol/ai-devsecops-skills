@@ -11,3 +11,7 @@
   ([`../bsr/caution.md`](../bsr/caution.md)).
 - Major `rules_*` / Bazel version bumps → separate PR + release notes
   ([`grouping.md`](../../policy/grouping.md)).
+- **Couplings:** if `*.MODULE.bazel` pulls language locks (`Cargo.lock`,
+  `go.mod`, pip `requirements.txt`, …), a bump on that language side is also a
+  Bazel graph change — run Bazel verify and refresh `MODULE.bazel.lock` when
+  required ([`../../maintain/verify.md`](../../maintain/verify.md)).
