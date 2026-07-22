@@ -4,16 +4,23 @@ How to split dependency updates into reviewable units.
 
 ## Prefer
 
-- **Patch / minor** of the same ecosystem together when low-risk and unrelated to
-  a major framework.
+- **Security fixes on their own track** — `deps-vuln` / `code-vuln` only, minimal
+  remediation ([`../maintain/pr-lifecycle.md`](../maintain/pr-lifecycle.md)
+  branch `fix/agent-security`). Ship security before routine in the same run.
+- **Routine catalog / non-security** on the routine track (`fix/agent`) —
+  `deps-policy` patch/minor (and other non-security findings).
+- **Patch / minor** of the same ecosystem together on the **routine** track when
+  low-risk and unrelated to a major framework.
 - **One PR per major** of a high-impact package (frameworks, ORMs, HTTP stacks,
   auth, crypto, language runtimes).
-- **Security fixes** soonest; may be a dedicated PR even if small.
 - **Same reason together** (e.g. all `@types/*` minors) when the review story is
   identical.
 
 ## Avoid
 
+- **Mixing security remediations with routine catalog bumps or non-security
+  fixes** in one change request (hard rule — see
+  [`../maintain/pr-lifecycle.md`](../maintain/pr-lifecycle.md)).
 - Mixing unrelated ecosystems in one PR unless the product or a **coupled
   bundle** requires it ([`bundles.md`](../policy/bundles.md)).
 - Bundling a major bump with dozens of unrelated patches.
@@ -23,14 +30,17 @@ How to split dependency updates into reviewable units.
 
 | Tier   | Examples                                                       | Default action                  |
 | ------ | -------------------------------------------------------------- | ------------------------------- |
-| Low    | type stubs, linters, small libs, patch-only                    | Group freely                    |
+| Low    | type stubs, linters, small libs, patch-only                    | Group freely (routine track)    |
 | Medium | utilities, middleware, CLI helpers                             | Small groups; skim changelog    |
 | High   | language frameworks, DB drivers, auth, crypto, build toolchain | Separate PR; read release notes |
+
+Security advisories are always the **security** track, regardless of tier.
 
 ## Majors
 
 - Default: **separate PR**, link release notes / migration guide in the PR body.
 - If unsure whether a bump is major: treat as high risk until proven otherwise.
+- Never attach a major to a security PR “while we’re here”.
 
 ## Monorepos
 
@@ -45,10 +55,13 @@ How to split dependency updates into reviewable units.
 - **PR group** (this file): how many bumps share one review story.
 
 A single unlocked bundle that spans ecosystems or codegen is usually **one PR**,
-even if grouping would otherwise split ecosystems.
+even if grouping would otherwise split ecosystems — but still on the
+**routine** track unless the only change is a security remediation.
 
 ## When the list is huge
 
-1. Propose a prioritized batch (security → patch → minor → selected majors).
-2. Execute only the agreed batch (or the first batch if the run said “go ahead”).
+1. Propose a prioritized batch (security track → routine patch → minor →
+   selected majors).
+2. Execute only the agreed batch (or the first batch if the run said “go ahead”),
+   still **splitting security vs routine** into separate change requests.
 3. Leave a short backlog note for the rest.

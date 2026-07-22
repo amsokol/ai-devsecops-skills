@@ -16,7 +16,8 @@ CLI: `glab`. Change request: **merge request**. Env: `AGENT_MR=<number>`.
 ## Maintain
 
 - **DRY-RUN:** do not open/close Issues, create branches/MRs, or edit files.
-- **SHIP:** open/update Issues, open/update one fix MR when safe, reconcile against
-  **this checkout only**. Use `AGENT_MAINTAIN_GITLAB_TOKEN` (or `GITLAB_TOKEN` /
-  `GLAB_TOKEN`). Never approve product merge requests. Follow
-  [../maintain/findings.md](../maintain/findings.md) and [../maintain/pr-lifecycle.md](../maintain/pr-lifecycle.md).
+- **SHIP:** open/update Issues, open/update security and/or routine fix MRs when
+  safe (never mix classes), reconcile against **this checkout only**. Use
+  `AGENT_MAINTAIN_GITLAB_TOKEN` (or `GITLAB_TOKEN` / `GLAB_TOKEN`). Never approve
+  product merge requests. Follow [../maintain/findings.md](../maintain/findings.md)
+  and [../maintain/pr-lifecycle.md](../maintain/pr-lifecycle.md).

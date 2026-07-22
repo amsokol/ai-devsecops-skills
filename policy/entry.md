@@ -37,7 +37,7 @@ Follow these for procedures; do not restate them in product `POLICY.md`.
 | [`bundles.md`](bundles.md) | Coupled bundles |
 | [`../gate/change-review.md`](../gate/change-review.md) | Gate verdicts / threads |
 | [`../maintain/findings.md`](../maintain/findings.md) | Maintain Issues |
-| [`../maintain/pr-lifecycle.md`](../maintain/pr-lifecycle.md) | Maintain fix track |
+| [`../maintain/pr-lifecycle.md`](../maintain/pr-lifecycle.md) | Maintain fix tracks (security / routine) |
 | Product [`verify.md`](../../verify.md) | Post-fix commands |
 | [`../capabilities/code-quality.md`](../capabilities/code-quality.md) | When in scenario |
 | [`../capabilities/code-vuln.md`](../capabilities/code-vuln.md) | When in scenario |
@@ -51,9 +51,9 @@ Plus **enabled ecosystem topics** listed in product `POLICY.md` under
 
 - **Gate:** verdict only; no Issues / fix PRs; answer human questions in threads;
   apply quarantine / holds / grouping / bundles on **changed** pins only.
-- **Maintain:** full-repo scan; same quarantine duration as gate; Issues + one
-  fix track when `verify.md` passes; reconcile **this checkout only**; never
-  APPROVE product change requests.
+- **Maintain:** full-repo scan; same quarantine duration as gate; Issues + up to
+  two fix tracks (security / routine, never mixed) when `verify.md` passes;
+  reconcile **this checkout only**; never APPROVE product change requests.
 
 Details: scenario skills and `gate/change-review.md` / `maintain/*`.
 

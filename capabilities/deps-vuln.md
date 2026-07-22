@@ -16,8 +16,10 @@ when choosing fix versions.
 
 - Scan with ecosystem tools when available; otherwise report tool absence and
   still review known high-risk pins.
-- Open Issues per [`../maintain/findings.md`](../maintain/findings.md); fix track only when a
-  cleared, non-held (and bundle-unlocked) version passes [`../verify.md`](../verify.md).
+- Open Issues per [`../maintain/findings.md`](../maintain/findings.md); fix on the
+  **security** track only (`fix/agent-security`) when a cleared, non-held (and
+  bundle-unlocked) version passes [`../verify.md`](../verify.md). Do not batch
+  unrelated catalog bumps into that PR.
 
 ## Rules
 

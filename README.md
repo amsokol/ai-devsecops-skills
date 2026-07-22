@@ -26,7 +26,7 @@ git submodule update --remote .cursor/agent/library
 | ---- | ---- |
 | `policy/` | entry, signals, quarantine approach, holds, grouping, bundles |
 | `gate/` | gate-only procedures (change-request review) |
-| `maintain/` | maintain-only procedures (findings, fix track) |
+| `maintain/` | maintain-only procedures (findings, fix tracks) |
 | `scenarios/` | gate / maintain procedures |
 | `scm/` | forge CLI / tokens |
 | `capabilities/` | capability contracts (link ecosystem topics) |

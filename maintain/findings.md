@@ -30,6 +30,17 @@ Create the label if missing.
 - Suggested remediation
 - Quarantine notes when relevant
 
+## Fix track
+
+Link remediation PRs by class ([`pr-lifecycle.md`](pr-lifecycle.md)):
+
+| Capability | Track branch |
+| ---------- | ------------ |
+| `deps-vuln`, `code-vuln` | `fix/agent-security` |
+| `deps-policy`, `code-quality`, other non-security | `fix/agent` |
+
+A PR may `Closes` only Issues it actually remediates.
+
 ## Reconcile (this checkout only)
 
 1. List open issues with label `agent`.

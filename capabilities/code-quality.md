@@ -12,6 +12,8 @@ style nits already enforced by linters in `verify.md` / CI.
 
 - Hotspots listed in product `../../POLICY.md`.
 - Prefer findings that affect runtime correctness over pure style.
+- Open Issues per [`../maintain/findings.md`](../maintain/findings.md); ship fixes on the
+  **routine** track (`fix/agent`), never on the security track.
 
 ## Out of scope
 

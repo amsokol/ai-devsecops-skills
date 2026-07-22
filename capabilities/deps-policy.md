@@ -19,4 +19,5 @@ bumps, refresh locks). Do not invent ecosystems that are not enabled.
 - Current pins inside the quarantine window → FORBIDDEN
   (`AGENT_SIGNAL: policy-violation`).
 - Propose bumps only to versions that cleared quarantine, holds, and bundle
-  rules; group per [`grouping.md`](../policy/grouping.md).
+  rules; group per [`grouping.md`](../policy/grouping.md). Ship on the **routine**
+  track (`fix/agent`) only — never batch into a security PR.

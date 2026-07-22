@@ -7,6 +7,15 @@ top; older releases grow downward).
 
 ## Unreleased
 
+## 0.1.2 - 2026-07-22
+
+### Changed
+
+- Maintain ships **two** fix tracks: security (`fix/agent-security` for
+  `deps-vuln` / `code-vuln`) and routine (`fix/agent` for catalog bumps /
+  non-security). Never mix classes in one change request; security first when
+  both apply (`maintain/pr-lifecycle.md`, `policy/grouping.md`, scenarios/SCM).
+
 ## 0.1.1 - 2026-07-22
 
 ### Added

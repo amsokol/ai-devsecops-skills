@@ -19,7 +19,8 @@ Do **not** use a personal PAT as `GH_TOKEN` (reviews would appear as a human).
 ## Maintain
 
 - **DRY-RUN:** do not open/close Issues, create branches/PRs, or edit files.
-- **SHIP:** open/update Issues, open/update one fix PR when safe, reconcile against
-  **this checkout only**. Use `GH_TOKEN` (`github.token`). Never APPROVE product
-  pull requests. Follow [../maintain/findings.md](../maintain/findings.md) and
+- **SHIP:** open/update Issues, open/update security and/or routine fix PRs when
+  safe (never mix classes), reconcile against **this checkout only**. Use
+  `GH_TOKEN` (`github.token`). Never APPROVE product pull requests. Follow
+  [../maintain/findings.md](../maintain/findings.md) and
   [../maintain/pr-lifecycle.md](../maintain/pr-lifecycle.md).

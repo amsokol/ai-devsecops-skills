@@ -29,8 +29,10 @@ ecosystems listed in `../../POLICY.md`.
 2. Comment pass ([`holds.md`](../policy/holds.md)); discover bundles ([`bundles.md`](../policy/bundles.md)).
 3. Scan per capability skills (deps policy/vuln, code quality/vuln, …).
 4. Cluster findings; open/update Issues with stable keys ([`findings.md`](../maintain/findings.md)).
-5. Ship: safe verified fixes ([`verify.md`](../../verify.md), [`grouping.md`](../policy/grouping.md)) → one fix change-request
-   track ([`pr-lifecycle.md`](../maintain/pr-lifecycle.md)); reconcile/close Issues when gone on **this** tree.
+5. Ship: safe verified fixes ([`verify.md`](../../verify.md), [`grouping.md`](../policy/grouping.md)) →
+   **security** and/or **routine** fix tracks ([`pr-lifecycle.md`](../maintain/pr-lifecycle.md));
+   never mix security with routine in one change request. Security first when both
+   apply. Reconcile/close Issues when gone on **this** tree.
 6. Report: short headings/lists (not wide tables) + change-request / issue URLs.
 
 ## Signals

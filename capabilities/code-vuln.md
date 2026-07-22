@@ -13,6 +13,9 @@ and CI checks; still apply an LLM pass on hotspots.
 
 - Same classes across surfaces listed in `../../POLICY.md`; prioritize reachable code
   paths.
+- Open Issues per [`../maintain/findings.md`](../maintain/findings.md); ship fixes on the
+  **security** track only (`fix/agent-security`). Do not mix with routine catalog
+  bumps.
 
 ## Rules
 
