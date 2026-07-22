@@ -3,12 +3,12 @@
 All notable changes to this skill library are documented here.
 Versions follow [SemVer](https://semver.org/) as described in `README.md`.
 
-New versions are **prepended** below `[Unreleased]` (latest release always
-near the top; older releases grow downward).
+New versions are **prepended** below Unreleased (latest release always near the
+top; older releases grow downward).
 
-## [Unreleased]
+## Unreleased
 
-## [0.1.0] - 2026-07-22
+## 0.1.0 - 2026-07-22
 
 ### Added
 

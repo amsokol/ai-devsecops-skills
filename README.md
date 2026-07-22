@@ -68,15 +68,15 @@ pin intentional and reviewable.
 **Process (manual, per batch of changes):**
 
 1. Land work on `main` (PR + green CI).
-2. Update [`CHANGELOG.md`](CHANGELOG.md): move items from `[Unreleased]` into a
-   **new version section prepended** right below `[Unreleased]` (latest release
+2. Update [`CHANGELOG.md`](CHANGELOG.md): move items from `Unreleased` into a
+   **new version section prepended** right below `Unreleased` (latest release
    stays near the top; older sections move down).
 3. Tag and publish a GitHub Release:
 
 ```bash
 git tag -a v0.1.0 -m "v0.1.0"
 git push origin v0.1.0
-gh release create v0.1.0 --title "v0.1.0" --notes-file <(sed -n '/## \[0.1.0\]/,/## \[/p' CHANGELOG.md | sed '$d')
+gh release create v0.1.0 --title "v0.1.0" --notes-file <(sed -n '/## 0.1.0/,/^## /p' CHANGELOG.md | sed '$d')
 ```
 
 Or draft notes in the GitHub UI from the CHANGELOG section.
