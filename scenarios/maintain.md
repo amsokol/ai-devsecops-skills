@@ -15,7 +15,7 @@ and `.cursor/agent/library/scm/<provider>.md` for the active forge.
 
 - **DRY-RUN** — plan only; do not open/close Issues, create branches/CRs, or edit files.
 - **SHIP** — Issues / fix CR / reconcile per [../maintain/findings.md](../maintain/findings.md),
-  [../maintain/pr-lifecycle.md](../maintain/pr-lifecycle.md), [verify.md](../verify.md), and the SCM skill.
+  [../maintain/pr-lifecycle.md](../maintain/pr-lifecycle.md), [`verify.md`](../../verify.md), and the SCM skill.
 
 ## Capabilities
 
@@ -25,7 +25,7 @@ ecosystems listed in `../../POLICY.md`.
 ## Steps
 
 1. Discover manifests and source surfaces (product `../../POLICY.md`, ecosystem topics,
-   `verify.md`).
+   [`verify.md`](../../verify.md)).
 2. Comment pass ([`holds.md`](../policy/holds.md)); discover bundles ([`bundles.md`](../policy/bundles.md)).
 3. Scan per capability skills (deps policy/vuln, code quality/vuln, …).
 4. Cluster findings; open/update Issues with stable keys ([`findings.md`](../maintain/findings.md)).
