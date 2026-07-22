@@ -7,6 +7,12 @@ top; older releases grow downward).
 
 ## Unreleased
 
+### Changed
+
+- **github-actions**: detect/bump **container images** with concrete `x.y.z`
+  (or vendor semver) tags + registry publish-time quarantine; prefer `vX.Y.Z`
+  for `uses:` when available
+
 ## 0.1.9 - 2026-07-23
 
 ### Added
