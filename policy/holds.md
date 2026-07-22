@@ -39,6 +39,10 @@ you touch a line.
 Natural-language comments **without** a prefix still count when they clearly
 refer to that pin.
 
+Human unlocks may also appear on the **GitHub Issue** for the finding (label
+`agent`), e.g. `ok — create PR`. Product CI should wake maintain on those
+comments ([`../maintain/issue-wake.md`](../maintain/issue-wake.md)).
+
 ## Rules
 
 - Unmet hold → **blocked** (do not bump that pin; for bundles, block **all**

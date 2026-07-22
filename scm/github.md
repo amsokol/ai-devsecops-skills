@@ -47,3 +47,7 @@ fails.
   `GH_TOKEN` (`github.token`). Never APPROVE product pull requests. Follow
   [../maintain/findings.md](../maintain/findings.md) and
   [../maintain/pr-lifecycle.md](../maintain/pr-lifecycle.md).
+- **Human wake:** product CI should run maintain **ship** on human comments to
+  Issues labeled `agent` (not PR threads). See
+  [../maintain/issue-wake.md](../maintain/issue-wake.md). Gate ignores those
+  comments.
