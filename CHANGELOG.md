@@ -7,6 +7,14 @@ top; older releases grow downward).
 
 ## Unreleased
 
+## 0.1.4 - 2026-07-22
+
+### Changed
+
+- GitHub merge authority is the gate **status check**, not APPROVE events:
+  bot-authored maintain PRs cannot receive APPROVE from `github-actions[bot]`
+  (`scm/github.md`, `gate/change-review.md`, products/starter).
+
 ## 0.1.3 - 2026-07-22
 
 ### Changed

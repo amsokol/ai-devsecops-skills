@@ -25,3 +25,15 @@ cp .cursor/agent/library/products/starter/overlay/quarantine.md.template \
 
 Do not restate gate/maintain procedures or the standard skill list — they live
 in `library/policy/entry.md` and the catalog.
+
+## Branch ruleset (GitHub)
+
+Gate and maintain both use `github-actions[bot]`. GitHub forbids APPROVE on
+bot-authored PRs. Protect `main` with:
+
+- **Required status check:** your gate job name (strict) — merge only when green
+- **Required approving reviews:** **0**
+- Prefer **require conversation resolution**
+
+Do **not** set `required_approving_review_count ≥ 1` or maintain fix PRs cannot
+merge. See [`scm/github.md`](../../scm/github.md).

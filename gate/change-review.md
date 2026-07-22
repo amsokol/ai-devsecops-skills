@@ -45,6 +45,11 @@ Signals: [`signals.md`](../policy/signals.md).
 | approve           | No blocking findings; threads clear or resolved | (no signal)                       |
 | comment           | Non-blocking notes only                         | (no signal)                       |
 
+**Merge authority** is the gate CI **status check** (exit code), not the GitHub
+APPROVE event. On GitHub, when the PR author is the same bot that reviews
+(`github-actions[bot]`), APPROVE is rejected — post **Decision: Approve** as a
+`COMMENT` review and exit 0. See [`../scm/github.md`](../scm/github.md).
+
 Skip draft change requests (report and stop; no signal).
 
 ## Review body format (ship)
