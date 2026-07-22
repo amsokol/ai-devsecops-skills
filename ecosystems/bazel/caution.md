@@ -1,5 +1,13 @@
 # Ecosystem: Bazel (bzlmod)
 
-## Reporting
+## Caution
 
-```markdown
+- Prefer BCR versions; do not invent module names or versions.
+- Refresh `MODULE.bazel.lock` with the `bazel_dep` / toolchain bump in the same
+  change-set (`bazel mod tidy` when the product uses it).
+- Non-BCR pins (`buf.toolchains`, language toolchains, container images in CI)
+  need product unlock evidence — do not treat BCR metadata as covering them.
+- When Buf CLI is also pinned via Go `tool`, keep Bazel `buf.toolchains` aligned
+  ([`../bsr/caution.md`](../bsr/caution.md)).
+- Major `rules_*` / Bazel version bumps → separate PR + release notes
+  ([`grouping.md`](../../policy/grouping.md)).

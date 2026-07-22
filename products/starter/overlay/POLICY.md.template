@@ -11,8 +11,13 @@ Only listed ecosystems are in scope for deps-policy / deps-vuln. For each, read
 all topics under that folder (`detect`, `update`, `publish-time`, `advisories`, …).
 
 - [`library/ecosystems/python-uv/detect.md`](library/ecosystems/python-uv/detect.md)
+<!-- - [`library/ecosystems/python-pip-compile/detect.md`](library/ecosystems/python-pip-compile/detect.md) -->
 <!-- - [`library/ecosystems/npm/detect.md`](library/ecosystems/npm/detect.md) -->
 <!-- - [`library/ecosystems/cargo/detect.md`](library/ecosystems/cargo/detect.md) -->
+<!-- - [`library/ecosystems/go-modules/detect.md`](library/ecosystems/go-modules/detect.md) -->
+<!-- - [`library/ecosystems/bazel/detect.md`](library/ecosystems/bazel/detect.md) -->
+<!-- - [`library/ecosystems/bsr/detect.md`](library/ecosystems/bsr/detect.md) -->
+<!-- - [`library/ecosystems/github-actions/detect.md`](library/ecosystems/github-actions/detect.md) -->
 
 ## Hotspots
 
