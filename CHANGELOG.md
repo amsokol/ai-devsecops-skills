@@ -7,6 +7,8 @@ top; older releases grow downward).
 
 ## Unreleased
 
+## 0.1.7 - 2026-07-22
+
 ### Changed
 
 - Report **Pending quarantine** (versions seen but not adopted; publish + clear
