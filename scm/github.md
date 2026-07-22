@@ -47,10 +47,14 @@ fails.
   `GH_TOKEN` (`github.token`). Never APPROVE product pull requests. Follow
   [../maintain/findings.md](../maintain/findings.md) and
   [../maintain/pr-lifecycle.md](../maintain/pr-lifecycle.md).
-- **Workflow file pushes:** product `agent-maintain` (and the maintain job in
-  `ci.yml`) must grant `workflows: write` in addition to `contents: write`.
-  Without it, GitHub rejects pushes that touch `.github/workflows/*.yml` (e.g.
-  `actions/checkout` pin bumps), even when `contents: write` is set.
+- **Workflow file pushes:** `GITHUB_TOKEN` **cannot** push changes under
+  `.github/workflows/` (App token lacks the `workflow` scope). Do **not** put
+  `workflows: write` in the Actions `permissions:` block — that key is invalid
+  and makes GitHub reject the workflow file at parse time. Instead, set secret
+  **`AGENT_WORKFLOW_TOKEN`**: classic PAT with scopes **`repo`** + **`workflow`**,
+  and pass it to maintain `actions/checkout` as
+  `token: ${{ secrets.AGENT_WORKFLOW_TOKEN || github.token }}`. Keep
+  `GH_TOKEN=${{ github.token }}` for Issues/PR API as `github-actions[bot]`.
 - **Human wake:** product CI should run maintain **ship** on human comments to
   Issues labeled `agent` (not PR threads). See
   [../maintain/issue-wake.md](../maintain/issue-wake.md). Gate ignores those

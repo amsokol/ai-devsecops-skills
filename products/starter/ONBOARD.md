@@ -37,10 +37,12 @@ Path: Settings → Actions → General → Workflow permissions
 | `AGENT_MAINTAIN_MODEL` | variable | yes (or fallbacks) |
 | `AGENT_RUNNER_REF` | variable | recommended — runner tag, e.g. `v0.3.2` |
 | `AGENT_GATE_GH_TOKEN` | secret | optional — classic `repo` for resolve threads |
+| `AGENT_WORKFLOW_TOKEN` | secret | for workflow-file bumps — classic **`repo` + `workflow`** |
 | Product tokens (e.g. `BUF_TOKEN`) | secret | as needed for verify |
 
 ```bash
 gh secret set CURSOR_API_KEY
+gh secret set AGENT_WORKFLOW_TOKEN   # classic PAT: repo + workflow
 gh variable set AGENT_GATE_MODEL --body "composer-2.5"
 gh variable set AGENT_MAINTAIN_MODEL --body "composer-2.5"
 gh variable set AGENT_RUNNER_REF --body "v0.3.2"
@@ -69,10 +71,13 @@ permissions + toolchain + `install-agent-runner` pattern).
 | Workflow | `permissions` |
 | -------- | ------------- |
 | agent-gate | `contents: read`, `pull-requests: write` |
-| agent-maintain (+ CI maintain job) | `contents: write`, `pull-requests: write`, `issues: write`, **`workflows: write`** |
+| agent-maintain (+ CI maintain job) | `contents: write`, `pull-requests: write`, `issues: write` |
 
-Without `workflows: write`, maintain cannot push bumps under `.github/workflows/`
-(see [`scm/github.md`](../../scm/github.md)).
+Do **not** add `workflows: write` to `permissions:` — that key is invalid and
+breaks the workflow at parse time. To push `.github/workflows/` bumps, set
+`AGENT_WORKFLOW_TOKEN` and pass it to maintain checkout
+(`token: ${{ secrets.AGENT_WORKFLOW_TOKEN || github.token }}`). See
+[`scm/github.md`](../../scm/github.md).
 
 ## 5. Branch ruleset on `main`
 
