@@ -7,6 +7,14 @@ top; older releases grow downward).
 
 ## Unreleased
 
+## 0.1.5 - 2026-07-22
+
+### Changed
+
+- Cargo outdated scan: compare **manifest pins** (and lock) to crates.io;
+  do not treat `cargo update --dry-run` alone as “direct pins current”
+  (`ecosystems/cargo/update.md`).
+
 ## 0.1.4 - 2026-07-22
 
 ### Changed
