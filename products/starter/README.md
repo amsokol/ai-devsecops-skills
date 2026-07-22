@@ -33,8 +33,10 @@ in `library/policy/entry.md` and the catalog.
 
 Copy [`workflows/*.yml.template`](workflows/) into the product
 `.github/workflows/`, replace `__TARGET_ID__` / `__RUNNER_TAG__`, and fill the
-maintain toolchain block. Gate calls the runner reusable workflow; maintain uses
-the `install-agent-runner` composite after product setup.
+maintain toolchain block. Gate uses composite `run-product-agent-gate` inside a
+job named **`Agent gate (PR review)`** (do not use `workflow_call` — it renames
+the required status check). Maintain uses `install-agent-runner` after product
+setup.
 
 ## Branch ruleset (GitHub)
 
