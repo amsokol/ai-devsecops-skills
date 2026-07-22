@@ -7,6 +7,8 @@ top; older releases grow downward).
 
 ## Unreleased
 
+## 0.1.8 - 2026-07-22
+
 ### Added
 
 - Ecosystem **`python-pip-compile`**: `requirements.in` → pip-compile locks,
