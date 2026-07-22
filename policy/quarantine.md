@@ -64,4 +64,3 @@ or constrain resolution to a cleared version when the ecosystem allows.
 
 **Gate:** every **changed** pin/lock entry inside the window is a fail; list them
 under Pending quarantine as well as under deps-policy Fail.
-
