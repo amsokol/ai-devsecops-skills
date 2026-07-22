@@ -21,13 +21,13 @@ uses it.
 
 ## Apply bumps
 
-1. Comment pass ([`holds.md`](../policy/holds.md)); bundles ([`bundles.md`](../policy/bundles.md)).
+1. Comment pass ([`holds.md`](../../policy/holds.md)); bundles ([`bundles.md`](../../policy/bundles.md)).
 2. Edit `bazel_dep(…, version = "…")` in `MODULE.bazel` / includes.
 3. Commit `MODULE.bazel.lock` if it changes.
-4. Toolchain / rules bumps often belong in a **dedicated** PR ([`grouping.md`](../policy/grouping.md)),
+4. Toolchain / rules bumps often belong in a **dedicated** PR ([`grouping.md`](../../policy/grouping.md)),
    separate from app library bumps.
 
 ## Light verify (ecosystem)
 
-Prefer product [`verify.md`](../../../../verify.md)(../../../../verify.md). Else a narrow documented build (not necessarily
+Prefer product [`verify.md`](../../products/starter/overlay/verify.md.template). Else a narrow documented build (not necessarily
 `//...` on first try).

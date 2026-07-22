@@ -20,7 +20,7 @@ when choosing fix versions.
 - Fix on the **security** track only (`fix/agent-security`) when remediation is
   allowed under quarantine, holds, and **full** bundle rules
   ([`../policy/bundles.md`](../policy/bundles.md) — security section) and passes
-  [`../verify.md`](../verify.md). Do not batch unrelated catalog bumps into that PR.
+  [`verify.md`](../products/starter/overlay/verify.md.template). Do not batch unrelated catalog bumps into that PR.
 
 ## Rules
 

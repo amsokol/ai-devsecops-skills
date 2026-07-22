@@ -7,6 +7,12 @@ top; older releases grow downward).
 
 ## Unreleased
 
+### Changed
+
+- Fix in-repo markdown links; product overlay links point at starter templates
+- CI: `scripts/check_md_links.py` fails PR on broken relative links (same job as
+  markdownlint)
+
 ## 0.1.5 - 2026-07-22
 
 ### Changed

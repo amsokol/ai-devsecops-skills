@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  markdownlint:
+  markdown:
     name: Markdown lint
     runs-on: ubuntu-24.04
     steps:
@@ -19,3 +19,6 @@ jobs:
 
       - name: Markdown lint
         run: npx --yes markdownlint-cli2 "**/*.md"
+
+      - name: Markdown links
+        run: python3 scripts/check_md_links.py

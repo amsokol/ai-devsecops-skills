@@ -14,14 +14,14 @@ Prefer official tooling already in the repo (Makefiles, scripts) when present.
 
 ## Apply bumps
 
-1. Comment pass ([`holds.md`](../policy/holds.md)); bundles ([`bundles.md`](../policy/bundles.md)).
+1. Comment pass ([`holds.md`](../../policy/holds.md)); bundles ([`bundles.md`](../../policy/bundles.md)).
 2. `go get package@version` or careful `go.mod` edit.
 3. Always `go mod tidy` in that module.
 4. Keep `go.sum` consistent; do not hand-edit unless resolving a known conflict.
 
 ## Light verify (ecosystem)
 
-Prefer product [`verify.md`](../../../../verify.md)(../../../../verify.md). Else, in order:
+Prefer product [`verify.md`](../../products/starter/overlay/verify.md.template). Else, in order:
 
 1. `go test ./...` (or a narrower package set if huge)
 2. `go build ./...`

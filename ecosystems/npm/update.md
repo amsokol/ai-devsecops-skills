@@ -19,11 +19,11 @@ Prefer the repo’s package manager:
 - yarn: `yarn add package@version` / `yarn up`
 
 Keep lockfile changes with `package.json`. Do not delete the lockfile to
-“refresh” it. Comment pass ([`holds.md`](../policy/holds.md)); bundles ([`bundles.md`](../policy/bundles.md)).
+“refresh” it. Comment pass ([`holds.md`](../../policy/holds.md)); bundles ([`bundles.md`](../../policy/bundles.md)).
 
 ## Light verify (ecosystem)
 
-Prefer product [`verify.md`](../../../../verify.md)(../../../../verify.md). Else, in order:
+Prefer product [`verify.md`](../../products/starter/overlay/verify.md.template). Else, in order:
 
 1. `npm test` / `pnpm test` / `yarn test` if defined
 2. `npm run build` (or equivalent) if that is the project gate

@@ -56,11 +56,11 @@ HTML `curl` of `buf.build/…` pages (JS SPA shell — not unlock evidence).
 
 ## Apply (when unlocked)
 
-1. Bump all bundle members together ([`bundles.md`](../policy/bundles.md)) — e.g. crate pin + BSR
+1. Bump all bundle members together ([`bundles.md`](../../policy/bundles.md)) — e.g. crate pin + BSR
    remote tag to the same version family.
 2. Regenerate (`buf generate` or product-documented path).
 3. Refresh/remove stale `agent:` comments on every member.
 
 ## Light verify (ecosystem)
 
-Prefer product [`verify.md`](../../../../verify.md)(../../../../verify.md) (codegen + compile/tests for consumers).
+Prefer product [`verify.md`](../../products/starter/overlay/verify.md.template) (codegen + compile/tests for consumers).
