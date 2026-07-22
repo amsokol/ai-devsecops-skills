@@ -57,3 +57,10 @@ agent: resolved — finding no longer present (<date>, HEAD=<sha>). <brief evide
 ```
 
 Do not close based on another branch or an unmerged fix PR.
+
+## Human replies
+
+Humans unlock or approve remediation by commenting on the Issue. Product CI
+wakes maintain ([`issue-wake.md`](issue-wake.md)). Treat clear approvals as
+permission to ship that finding when other policy (quarantine, bundles, verify)
+allows.

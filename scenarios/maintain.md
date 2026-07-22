@@ -15,7 +15,10 @@ and `.cursor/agent/library/scm/<provider>.md` for the active forge.
 
 - **DRY-RUN** — plan only; do not open/close Issues, create branches/CRs, or edit files.
 - **SHIP** — Issues / fix CR / reconcile per [../maintain/findings.md](../maintain/findings.md),
-  [../maintain/pr-lifecycle.md](../maintain/pr-lifecycle.md), [`verify.md`](../products/starter/overlay/verify.md.template), and the SCM skill.
+  [../maintain/pr-lifecycle.md](../maintain/pr-lifecycle.md), [`../maintain/verify.md`](../maintain/verify.md),
+  product [`verify.md`](../products/starter/overlay/verify.md.template), and the SCM skill.
+  When woken by a human comment on an `agent` Issue, follow
+  [../maintain/issue-wake.md](../maintain/issue-wake.md).
 
 ## Capabilities
 

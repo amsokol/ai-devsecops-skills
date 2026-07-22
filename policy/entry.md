@@ -41,6 +41,7 @@ Follow these for procedures; do not restate them in product `POLICY.md`.
 | [`../maintain/findings.md`](../maintain/findings.md) | Maintain Issues |
 | [`../maintain/pr-lifecycle.md`](../maintain/pr-lifecycle.md) | Maintain fix tracks (security / routine) |
 | [`../maintain/verify.md`](../maintain/verify.md) | Which verify surfaces to run (change-scoped + couplings) |
+| [`../maintain/issue-wake.md`](../maintain/issue-wake.md) | Human comments on `agent` Issues → maintain ship |
 | Product [`verify.md`](../products/starter/overlay/verify.md.template) | Post-fix **commands** (by surface) |
 | [`../capabilities/code-quality.md`](../capabilities/code-quality.md) | When in scenario |
 | [`../capabilities/code-vuln.md`](../capabilities/code-vuln.md) | When in scenario |
