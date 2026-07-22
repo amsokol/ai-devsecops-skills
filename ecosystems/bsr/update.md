@@ -59,13 +59,8 @@ HTML `curl` of `buf.build/…` pages (JS SPA shell — not unlock evidence).
 1. Bump all bundle members together ([`bundles.md`](../../policy/bundles.md)) —
    e.g. crate pin + BSR remote tag to the same version family; Go/Python plugin
    tags with matching module/library pins when coupled.
-2. **Module deps (`buf.yaml`):** after changing a `deps:` label, refresh the lock:
-
-```bash
-buf dep update
-# commits buf.lock digest/commit changes — keep with the YAML bump
-```
-
+2. **Module deps (`buf.yaml`):** after changing a `deps:` label, run
+   `buf dep update` and keep `buf.lock` digest/commit changes with the YAML bump.
 3. **Remote plugins (`buf.gen.*.yaml`):** bump `plugins[].remote` tags; no
    `buf.lock` change unless a module dep also moved.
 4. Regenerate stubs (`buf generate` / product path). Requires registry auth when
