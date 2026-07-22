@@ -73,11 +73,15 @@ When we reach **1.0.0**, switch to classic SemVer (MAJOR / MINOR / PATCH).
 
 **Process (manual, per batch of changes):**
 
-1. Land work on `main` (PR + green CI).
+`main` is protected (ruleset **protect-main**): **no direct pushes** — only merge
+via PR. Required status check: **Markdown lint**. No bypass actors.
+
+1. Open a PR → merge when CI is green (do not push commits to `main`).
 2. Update [`CHANGELOG.md`](CHANGELOG.md): move items from `Unreleased` into a
    **new version section prepended** right below `Unreleased` (latest release
-   stays near the top; older sections move down).
-3. Tag and publish a GitHub Release:
+   stays near the top; older sections move down). Include the CHANGELOG edit in
+   the PR (or a follow-up PR) before tagging.
+3. Tag and publish a GitHub Release from `main` after merge:
 
 ```bash
 git tag -a v0.1.1 -m "v0.1.1"
