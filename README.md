@@ -24,7 +24,7 @@ git submodule update --remote .cursor/agent/library
 
 | Path | Role |
 | ---- | ---- |
-| `policy/` | signals, quarantine approach, holds, grouping, bundles |
+| `policy/` | entry, signals, quarantine approach, holds, grouping, bundles |
 | `gate/` | gate-only procedures (change-request review) |
 | `maintain/` | maintain-only procedures (findings, fix track) |
 | `scenarios/` | gate / maintain procedures |
@@ -59,11 +59,17 @@ Markdown lint runs on every pull request and on pushes to `main`
 Consumers pin the library via the **submodule commit SHA**. Releases make that
 pin intentional and reviewable.
 
-| Kind | When |
-| ---- | ---- |
-| **MAJOR** (`v1.0.0`) | Breaking: path renames, removed topics, marker/signal contract changes that require overlay edits |
-| **MINOR** (`v0.2.0`) | Additive: new ecosystem, new topic, new scenario/capability |
-| **PATCH** (`v0.1.1`) | Clarifications, typo/lint fixes, non-breaking wording |
+While the major version is **0** (`0.x.y`):
+
+| Segment | When |
+| ------- | ---- |
+| **x** | Backward compatibility **broken** (path renames, removed topics, marker/signal contracts that require product overlay or runner changes) |
+| **y** | Backward compatibility **kept** — bug fixes **or** new functionality (new ecosystems, topics, clearer docs, additive entry skills) |
+
+Examples: `0.1.0` → `0.1.1` (additive `policy/entry.md`, thinner overlay templates);
+`0.1.1` → `0.2.0` (rename/remove a skill path products already link).
+
+When we reach **1.0.0**, switch to classic SemVer (MAJOR / MINOR / PATCH).
 
 **Process (manual, per batch of changes):**
 
@@ -74,9 +80,9 @@ pin intentional and reviewable.
 3. Tag and publish a GitHub Release:
 
 ```bash
-git tag -a v0.1.0 -m "v0.1.0"
-git push origin v0.1.0
-gh release create v0.1.0 --title "v0.1.0" --notes-file <(sed -n '/## 0.1.0/,/^## /p' CHANGELOG.md | sed '$d')
+git tag -a v0.1.1 -m "v0.1.1"
+git push origin v0.1.1
+gh release create v0.1.1 --title "v0.1.1" --notes-file <(sed -n '/## 0.1.1/,/^## /p' CHANGELOG.md | sed '$d')
 ```
 
 Or draft notes in the GitHub UI from the CHANGELOG section.
@@ -86,10 +92,10 @@ Or draft notes in the GitHub UI from the CHANGELOG section.
 ```bash
 cd .cursor/agent/library
 git fetch --tags
-git checkout v0.1.0   # or a newer tag
+git checkout v0.1.1   # or a newer tag
 cd ../../..
 git add .cursor/agent/library
-git commit -m "chore(skills): bump library to v0.1.0"
+git commit -m "chore(skills): bump library to v0.1.1"
 ```
 
 Prefer tags over floating `main` for products; the runner may track `main` while

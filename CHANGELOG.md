@@ -1,12 +1,23 @@
 # Changelog
 
 All notable changes to this skill library are documented here.
-Versions follow [SemVer](https://semver.org/) as described in `README.md`.
-
-New versions are **prepended** below Unreleased (latest release always near the
+Versioning while on `0.x.y`: **x** = breaking, **y** = non-breaking (see
+`README.md`). New versions are **prepended** below Unreleased (latest near the
 top; older releases grow downward).
 
 ## Unreleased
+
+## 0.1.1 - 2026-07-22
+
+### Added
+
+- `policy/entry.md` — shared entry order and standard catalog links
+- Thin product overlay templates (product-only ecosystems / hotspots / duration)
+
+### Changed
+
+- `policy/quarantine.md` — approach only (duration stays in product overlay)
+- Versioning policy for `0.x.y`: **x** breaks compatibility, **y** does not
 
 ## 0.1.0 - 2026-07-22
 
@@ -18,4 +29,4 @@ top; older releases grow downward).
 - Ecosystems (topic files): python-uv, npm, cargo, go-modules, bazel, bsr
 - Product starter overlay templates
 - Markdown lint CI on pull requests and `main`
-- SemVer / GitHub Release process documented in README
+- Release process documented in README

@@ -1,38 +1,12 @@
-# Release quarantine
+# Quarantine (this product)
 
-**Approach:** see [`library/policy/quarantine.md`](library/policy/quarantine.md).
-**Duration** is set only in this product overlay.
+Approach: [`library/policy/quarantine.md`](library/policy/quarantine.md).
 
-## Duration (this product)
+| Setting    | Value                                  |
+| ---------- | -------------------------------------- |
+| Quarantine | **N days** (e.g. `2 days` / 48 hours) |
 
-| Setting    | Value                                      |
-| ---------- | ------------------------------------------ |
-| Quarantine | **N days** (e.g. `2 days` / 48 hours)     |
+Apply to every ecosystem listed in [`POLICY.md`](POLICY.md).
 
-Apply to every ecosystem listed in [`../../../../POLICY.md`](POLICY.md).
-
-## Candidates (versions you might bump **to**)
-
-1. Find publish time using the enabled ecosystem `publish-time.md` topics.
-2. If `now - published < N` → **wait** (do not bump).
-3. Prefer the newest version that already cleared the window.
-4. Unknown publish time → do not bump (treat as wait).
-
-## Current pins (already in the tree)
-
-If a **currently pinned** version is still younger than **N** → **FORBIDDEN**.
-
-On maintain:
-
-1. Open/update Issue per [`library/maintain/findings.md`](library/maintain/findings.md).
-2. End final answer with: `AGENT_SIGNAL: policy-violation`
-3. Do **not** “fix” by adopting an even newer pin inside the window.
-
-On gate (PR changes pins only):
-
-- Introducing or keeping a pin younger than **N** on the PR → blocking /
-  `AGENT_SIGNAL: policy-violation` (or `block` when REQUEST_CHANGES).
-
-## Security exception
-
-Document near the pin (see [`library/policy/holds.md`](library/policy/holds.md)) or in the Issue/PR body.
+Optional: product-specific enforcement ties (e.g. package-manager cooldown
+settings that must stay aligned with **N**).

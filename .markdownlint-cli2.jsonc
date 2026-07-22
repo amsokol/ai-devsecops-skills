@@ -2,7 +2,10 @@
   "config": {
     "default": true,
     "line-length": false,
-    "first-line-heading": false
+    "first-line-heading": false,
+    "no-duplicate-heading": {
+      "siblings_only": true
+    }
   },
   "ignores": [".venv", "docs"]
 }

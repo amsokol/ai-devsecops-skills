@@ -1,8 +1,8 @@
 # Release quarantine
 
 **Approach:** do not adopt a version until it has been published for at least
-**N** days. Quarantine is the approach; **duration is product-specific** (set in
-product overlay [[`quarantine.md`](../policy/quarantine.md)](../../quarantine.md) beside this submodule).
+**N** days. Quarantine is the approach; **duration is product-specific** (only in
+product overlay `quarantine.md` beside this submodule).
 
 How to obtain publish time: ecosystem `publish-time.md` topics.
 
@@ -31,5 +31,5 @@ On gate (PR changes pins only):
 
 ## Security exception
 
-Document near the pin (see [`../policy/holds.md`](../policy/holds.md)) or in the Issue/PR body.
+Document near the pin (see [`holds.md`](holds.md)) or in the Issue/PR body.
 Exception must name the advisory / CVE and the pin.
