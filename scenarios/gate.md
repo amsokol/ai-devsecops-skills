@@ -2,7 +2,7 @@
 
 You are the DevSecOps **gate** agent. Behavior is **verdict only**.
 
-Read [POLICY.md](../../POLICY.md), every linked skill, [signals.md](../policy/signals.md),
+Read [`POLICY.md`](../products/starter/overlay/POLICY.md.template), every linked skill, [signals.md](../policy/signals.md),
 and `.cursor/agent/library/scm/<provider>.md` for the active forge (`AGENT_SCM` /
 runtime facts).
 

@@ -3,7 +3,9 @@
 Read skills **in this order**. Do not invent policy numbers (especially quarantine
 duration **N** — only the product overlay may set N).
 
-Product overlay lives beside this submodule:
+Product overlay lives beside this submodule (agents read the live files at
+runtime). Catalog links below use **starter templates** so links resolve inside
+this repository:
 
 ```text
 .cursor/agent/
@@ -15,7 +17,7 @@ Product overlay lives beside this submodule:
 
 ## Always
 
-1. Product [`POLICY.md`](../../POLICY.md) — enabled ecosystems, hotspots,
+1. Product [`POLICY.md`](../products/starter/overlay/POLICY.md.template) — enabled ecosystems, hotspots,
    product-specific notes only.
 2. This file (catalog entry).
 3. Active scenario: [`../scenarios/gate.md`](../scenarios/gate.md) or
@@ -31,14 +33,14 @@ Follow these for procedures; do not restate them in product `POLICY.md`.
 | Skill | Role |
 | ----- | ---- |
 | [`quarantine.md`](quarantine.md) | Approach (duration N is product overlay only) |
-| Product [`quarantine.md`](../../quarantine.md) | Duration **N** (+ product ties) |
+| Product [`quarantine.md`](../products/starter/overlay/quarantine.md.template) | Duration **N** (+ product ties) |
 | [`holds.md`](holds.md) | Holds, unlocks, comment pass |
 | [`grouping.md`](grouping.md) | PR grouping for bumps |
 | [`bundles.md`](bundles.md) | Coupled bundles |
 | [`../gate/change-review.md`](../gate/change-review.md) | Gate verdicts / threads |
 | [`../maintain/findings.md`](../maintain/findings.md) | Maintain Issues |
 | [`../maintain/pr-lifecycle.md`](../maintain/pr-lifecycle.md) | Maintain fix tracks (security / routine) |
-| Product [`verify.md`](../../verify.md) | Post-fix commands |
+| Product [`verify.md`](../products/starter/overlay/verify.md.template) | Post-fix commands |
 | [`../capabilities/code-quality.md`](../capabilities/code-quality.md) | When in scenario |
 | [`../capabilities/code-vuln.md`](../capabilities/code-vuln.md) | When in scenario |
 | [`../capabilities/deps-policy.md`](../capabilities/deps-policy.md) | When in scenario |

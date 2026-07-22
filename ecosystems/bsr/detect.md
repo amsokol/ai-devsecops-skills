@@ -13,4 +13,4 @@ Human UI: [buf.build](https://buf.build/).
 | Remote plugin | `buf.gen.*.yaml` → `plugins[].remote` | `buf.build/owner/plugin:v0.8.1` |
 | Coupled crate / app pin | other manifests | often `Cargo.toml` / Go modules |
 
-Always run the comment pass ([`holds.md`](../policy/holds.md)) first.
+Always run the comment pass ([`holds.md`](../../policy/holds.md)) first.

@@ -30,8 +30,8 @@ quarantine on the published tag/commit time when known.
 
 ## Apply bumps
 
-1. Comment pass ([`holds.md`](../policy/holds.md)); respect bundles
-   ([`bundles.md`](../policy/bundles.md)) — crates often couple to BSR plugins
+1. Comment pass ([`holds.md`](../../policy/holds.md)); respect bundles
+   ([`bundles.md`](../../policy/bundles.md)) — crates often couple to BSR plugins
    ([`bsr`](../bsr/detect.md)) or codegen.
 2. Edit `Cargo.toml` (declared pin) **and** refresh `Cargo.lock`
    (`cargo update -p <crate>` / `cargo update -p <crate> --precise <ver>`).
@@ -39,7 +39,7 @@ quarantine on the published tag/commit time when known.
 
 ## Light verify (ecosystem)
 
-Prefer product [`verify.md`](../../../verify.md). Else:
+Prefer product [`verify.md`](../../products/starter/overlay/verify.md.template). Else:
 
 ```bash
 cargo check
