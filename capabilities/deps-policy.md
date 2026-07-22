@@ -26,6 +26,9 @@ bumps, refresh locks). Do not invent ecosystems that are not enabled.
 - After lock refresh, **re-check publish times** for every new/changed lock
   entry. If any remain inside the window, do **not** ship that PR (wait or
   constrain resolution).
+- Verify per [`../maintain/verify.md`](../maintain/verify.md): only surfaces
+  touched by the change, plus **build-system couplings** (e.g. Cargo/Go/pip
+  locks ingested by Bazel).
 - Report **Pending quarantine**: newer registry versions (and blocked lock
   entries) still inside the window — package, version, published, clears ~time
   ([`quarantine.md`](../policy/quarantine.md)). Include even when nothing ships.

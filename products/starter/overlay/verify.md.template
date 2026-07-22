@@ -1,24 +1,57 @@
 # Verify after fixes
 
-After applying dependency or code fixes, run these commands. Ship a fix PR only
-when they pass. On failure: fix forward or roll back.
+After applying dependency or code fixes, run these commands for the **surfaces
+in scope**. Which surfaces: catalog
+[`library/maintain/verify.md`](../../maintain/verify.md) (change-scoped +
+build-system couplings). Ship only when required surfaces pass. On failure: fix
+forward or roll back.
 
 ## Commands (this product)
 
+Organize by surface. Agents run only the sections that apply.
+
+### Go
+
 ```bash
-# Replace with this product’s CI-equivalent checks, e.g.:
-# uv sync --frozen && uv run pytest
-# pnpm test && pnpm build
-# cargo test
-# go test ./...
+# go build ./... && go test ./...
 true
 ```
 
-Optional advisory scans (informational unless a fix is in scope) — see enabled
-ecosystem topics under `ecosystems/<id>/`.
+### Cargo / Rust
+
+```bash
+# cargo test
+true
+```
+
+### Python
+
+```bash
+# uv sync --frozen / pip-compile path + lint
+true
+```
+
+### Bazel
+
+```bash
+# bazel build //... && bazel test //...
+true
+```
+
+### BSR / codegen (only when Buf / stubs changed)
+
+```bash
+# buf generate / product regen — only when required
+true
+```
+
+Optional advisory scans (when that ecosystem changed or the fix is deps-vuln) —
+see enabled ecosystem `advisories.md` topics.
 
 ## Rules
 
 - Prefer existing CI steps over inventing tools.
 - Do not lower quarantine or disable policy to make verify pass.
-- Record commands + results in the fix PR body.
+- Record commands + results (and which surfaces ran) in the fix PR body.
+- Document Bazel ↔ language couplings in product `POLICY.md` / notes when
+  `*.MODULE.bazel` pulls `Cargo.lock` / `go.mod` / pip locks.

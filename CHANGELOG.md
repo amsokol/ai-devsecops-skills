@@ -7,6 +7,11 @@ top; older releases grow downward).
 
 ## Unreleased
 
+### Added
+
+- Maintain **change-scoped verify** + Bazel ↔ language graph couplings
+  (`maintain/verify.md`; Bazel detect/caution; starter `verify.md` by surface)
+
 ## 0.1.8 - 2026-07-22
 
 ### Added
