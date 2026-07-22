@@ -51,9 +51,52 @@ cp .cursor/agent/library/products/starter/overlay/quarantine.md.template \
 
 CI: `actions/checkout` with `submodules: true` (or `git submodule update --init`).
 
+Markdown lint runs on every pull request and on pushes to `main`
+(`.github/workflows/ci.yml`).
+
+## Versions and releases
+
+Consumers pin the library via the **submodule commit SHA**. Releases make that
+pin intentional and reviewable.
+
+| Kind | When |
+| ---- | ---- |
+| **MAJOR** (`v1.0.0`) | Breaking: path renames, removed topics, marker/signal contract changes that require overlay edits |
+| **MINOR** (`v0.2.0`) | Additive: new ecosystem, new topic, new scenario/capability |
+| **PATCH** (`v0.1.1`) | Clarifications, typo/lint fixes, non-breaking wording |
+
+**Process (manual, per batch of changes):**
+
+1. Land work on `main` (PR + green CI).
+2. Update [`CHANGELOG.md`](CHANGELOG.md) under the new version (what / why).
+3. Tag and publish a GitHub Release:
+
+```bash
+git tag -a v0.1.0 -m "v0.1.0"
+git push origin v0.1.0
+gh release create v0.1.0 --title "v0.1.0" --notes-file <(sed -n '/## \[0.1.0\]/,/## \[/p' CHANGELOG.md | sed '$d')
+```
+
+Or draft notes in the GitHub UI from the CHANGELOG section.
+
+**Upgrade a product** to a release:
+
+```bash
+cd .cursor/agent/library
+git fetch --tags
+git checkout v0.1.0   # or a newer tag
+cd ../../..
+git add .cursor/agent/library
+git commit -m "chore(skills): bump library to v0.1.0"
+```
+
+Prefer tags over floating `main` for products; the runner may track `main` while
+iterating.
+
 ## Layout rules
 
 - One topic = one file. Large themes use folders.
-- Library root contains only this README.
+- Catalog knowledge lives under `policy/`, `gate/`, `maintain/`, `scenarios/`,
+  `scm/`, `capabilities/`, `ecosystems/`, `products/` — not product overlays.
 - Product-specific values (duration N, verify commands, enabled ecosystems,
   hotspots) live **only** in the overlay, never in this catalog.
