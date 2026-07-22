@@ -7,15 +7,16 @@ top; older releases grow downward).
 
 ## Unreleased
 
+### Fixed
+
+- **scm/github** + starter: `workflows: write` is **not** a valid Actions
+  `permissions` key — use classic PAT `AGENT_WORKFLOW_TOKEN` (`repo` +
+  `workflow`) on maintain checkout instead
+
 ### Added
 
 - **products/starter**: `ONBOARD.md` + `workflows/*.yml.template` (thin gate
   reusable + maintain + `install-agent-runner`)
-
-### Changed
-
-- **scm/github**: document maintain `workflows: write` (required to push
-  `.github/workflows/` pin bumps)
 
 ## 0.1.10 - 2026-07-23
 

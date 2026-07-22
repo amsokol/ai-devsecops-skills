@@ -6,7 +6,7 @@ use symlinks or copy the full catalog.
 See the [library README](../../README.md). Shared entry:
 [`policy/entry.md`](../../policy/entry.md).
 
-**Full checklist** (secrets, ruleset, workflows, `workflows: write`):
+**Full checklist** (secrets, ruleset, workflows, `AGENT_WORKFLOW_TOKEN`):
 [`ONBOARD.md`](ONBOARD.md).
 
 ## Overlay (product-only)
