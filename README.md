@@ -68,7 +68,9 @@ pin intentional and reviewable.
 **Process (manual, per batch of changes):**
 
 1. Land work on `main` (PR + green CI).
-2. Update [`CHANGELOG.md`](CHANGELOG.md) under the new version (what / why).
+2. Update [`CHANGELOG.md`](CHANGELOG.md): move items from `[Unreleased]` into a
+   **new version section prepended** right below `[Unreleased]` (latest release
+   stays near the top; older sections move down).
 3. Tag and publish a GitHub Release:
 
 ```bash
