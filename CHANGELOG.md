@@ -7,6 +7,8 @@ top; older releases grow downward).
 
 ## Unreleased
 
+## 0.1.10 - 2026-07-23
+
 ### Changed
 
 - **github-actions**: detect/bump **container images** with concrete `x.y.z`
