@@ -7,6 +7,8 @@ top; older releases grow downward).
 
 ## Unreleased
 
+## 0.1.6 - 2026-07-22
+
 ### Changed
 
 - Fix in-repo markdown links; product overlay links point at starter templates
