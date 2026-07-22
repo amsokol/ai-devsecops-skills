@@ -1,0 +1,24 @@
+# Verify after fixes
+
+After applying dependency or code fixes, run these commands. Ship a fix PR only
+when they pass. On failure: fix forward or roll back.
+
+## Commands (this product)
+
+```bash
+# Replace with this product’s CI-equivalent checks, e.g.:
+# uv sync --frozen && uv run pytest
+# pnpm test && pnpm build
+# cargo test
+# go test ./...
+true
+```
+
+Optional advisory scans (informational unless a fix is in scope) — see enabled
+ecosystem topics under `ecosystems/<id>/`.
+
+## Rules
+
+- Prefer existing CI steps over inventing tools.
+- Do not lower quarantine or disable policy to make verify pass.
+- Record commands + results in the fix PR body.
