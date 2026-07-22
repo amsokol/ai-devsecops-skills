@@ -7,6 +7,11 @@ top; older releases grow downward).
 
 ## Unreleased
 
+### Changed
+
+- **scm/github**: document maintain `workflows: write` (required to push
+  `.github/workflows/` pin bumps)
+
 ## 0.1.10 - 2026-07-23
 
 ### Changed
