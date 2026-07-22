@@ -7,6 +7,20 @@ top; older releases grow downward).
 
 ## Unreleased
 
+### Added
+
+- Ecosystem **`python-pip-compile`**: `requirements.in` → pip-compile locks,
+  PyPI quarantine, `pip-audit` advisories
+- Ecosystem **`github-actions`**: workflow `uses:` / env tool pins, release
+  publish-time, action advisories
+
+### Changed
+
+- **BSR** apply: explicit `buf dep update` / `buf.lock` refresh; complete
+  `caution.md`
+- **Bazel** `caution.md`: lock refresh, non-BCR pins, Buf CLI dual-pin note
+- **Go modules**: treat `tool (` block as direct pins; reinstall tools after bump
+
 ## 0.1.7 - 2026-07-22
 
 ### Changed

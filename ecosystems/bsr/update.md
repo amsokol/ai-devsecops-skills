@@ -56,10 +56,16 @@ HTML `curl` of `buf.build/…` pages (JS SPA shell — not unlock evidence).
 
 ## Apply (when unlocked)
 
-1. Bump all bundle members together ([`bundles.md`](../../policy/bundles.md)) — e.g. crate pin + BSR
-   remote tag to the same version family.
-2. Regenerate (`buf generate` or product-documented path).
-3. Refresh/remove stale `agent:` comments on every member.
+1. Bump all bundle members together ([`bundles.md`](../../policy/bundles.md)) —
+   e.g. crate pin + BSR remote tag to the same version family; Go/Python plugin
+   tags with matching module/library pins when coupled.
+2. **Module deps (`buf.yaml`):** after changing a `deps:` label, run
+   `buf dep update` and keep `buf.lock` digest/commit changes with the YAML bump.
+3. **Remote plugins (`buf.gen.*.yaml`):** bump `plugins[].remote` tags; no
+   `buf.lock` change unless a module dep also moved.
+4. Regenerate stubs (`buf generate` / product path). Requires registry auth when
+   the product uses BSR remotes (often `BUF_TOKEN`).
+5. Refresh/remove stale `agent:` comments on every member.
 
 ## Light verify (ecosystem)
 
