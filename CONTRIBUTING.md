@@ -33,11 +33,11 @@ Checklist for `ecosystems/<id>/`:
    always consider it; otherwise products enable it via overlay `POLICY.md`.
 5. Run locally:
 
-```bash
-npx --yes markdownlint-cli2@0.23.1 "**/*.md"
-python3 scripts/check_md_links.py
-python3 scripts/check_catalog_contracts.py   # after that script lands on main
-```
+   ```bash
+   npx --yes markdownlint-cli2@0.23.1 "**/*.md"
+   python3 scripts/check_md_links.py
+   python3 scripts/check_catalog_contracts.py
+   ```
 
 6. Add an `Unreleased` CHANGELOG note.
 
