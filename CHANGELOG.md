@@ -20,8 +20,8 @@ top; older releases grow downward).
 
 ### Added
 
-- **products/starter**: `ONBOARD.md` + `workflows/*.yml.template` (thin gate
-  + maintain + `install-agent-runner`)
+- **products/starter**: `ONBOARD.md` + `workflows/*.yml.template` (thin gate +
+  maintain + `install-agent-runner`)
 
 ## 0.1.10 - 2026-07-23
 
