@@ -22,7 +22,7 @@ bumps, refresh locks). Do not invent ecosystems that are not enabled.
   (`AGENT_SIGNAL: policy-violation`).
 - Propose bumps only to versions that cleared quarantine, holds, and bundle
   rules; group per [`grouping.md`](../policy/grouping.md). Ship on the **routine**
-  track (`fix/agent`) only — never batch into a security PR.
+  class (`fix/agent-<slug>`) only — never batch into a security PR.
 - After lock refresh, **re-check publish times** for every new/changed lock
   entry. If any remain inside the window, do **not** ship that PR (wait or
   constrain resolution).

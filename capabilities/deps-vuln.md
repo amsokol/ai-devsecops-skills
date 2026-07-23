@@ -17,7 +17,7 @@ when choosing fix versions.
 - Scan with ecosystem tools when available; otherwise report tool absence and
   still review known high-risk pins.
 - Open Issues per [`../maintain/findings.md`](../maintain/findings.md).
-- Fix on the **security** track only (`fix/agent-security`) when remediation is
+- Fix on the **security** class only (`fix/agent-security-<slug>`) when remediation is
   allowed under quarantine, holds, and **full** bundle rules
   ([`../policy/bundles.md`](../policy/bundles.md) — security section) and passes
   [`verify.md`](../products/starter/overlay/verify.md.template). Do not batch unrelated catalog bumps into that PR.

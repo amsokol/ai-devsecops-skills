@@ -91,7 +91,7 @@ Security does **not** justify a partial bundle move.
 1. **Vulnerable pin is a bundle member** (direct pin you would change to remediate):
    remediation is the **whole bundle** on one agreed version family — bump **all**
    members, regen, refresh all affected lockfiles, verify once. Ship on the
-   **security** track (`fix/agent-security`). Sibling member bumps required only
+   **security** class (`fix/agent-security-<slug>`). Sibling member bumps required only
    to keep the train aligned are part of that remediation, not “routine catalog”.
 2. **Cannot unlock the whole bundle** (a sibling has no safe/cleared version, a
    hold remains, quarantine blocks a member, unlock evidence incomplete):
