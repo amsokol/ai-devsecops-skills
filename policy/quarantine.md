@@ -6,7 +6,7 @@ product overlay `quarantine.md` beside this submodule).
 
 How to obtain publish time: ecosystem `publish-time.md` topics.
 
-### Runner helper (mandatory date math)
+## Runner helper (mandatory date math)
 
 Do **not** invent clear times or age arithmetic. After you have a publish
 timestamp (or know it is unknown), evaluate with the agent runner:
