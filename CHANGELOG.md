@@ -7,6 +7,14 @@ top; older releases grow downward).
 
 ## Unreleased
 
+## 0.1.14 - 2026-07-23
+
+### Changed
+
+- **quarantine** / **maintain**: mandatory runner helpers for date math and
+  fix-branch slugs (`uv run agent-helpers quarantine|branch`) — pairs with
+  ai-devsecops-cursor **0.3.12**; do not invent clear times or branch names
+
 ## 0.1.13 - 2026-07-23
 
 ### Changed

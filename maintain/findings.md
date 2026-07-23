@@ -41,9 +41,15 @@ closes another open agent PR:
 | `deps-vuln`, `code-vuln` | `fix/agent-security-<slug>` |
 | `deps-policy`, `code-quality`, other non-security | `fix/agent-<slug>` |
 
-`<slug>` = kebab-case from the Issue stable key (see
-[`pr-lifecycle.md`](pr-lifecycle.md)). A PR may `Closes` only Issues it actually
-remediates.
+`<slug>` and full branch name: derive with the runner helper (do not invent):
+
+```bash
+uv run agent-helpers branch --class routine --key "<stable key>"
+uv run agent-helpers branch --class security --key "<stable key>"
+```
+
+See [`pr-lifecycle.md`](pr-lifecycle.md). A PR may `Closes` only Issues it
+actually remediates.
 
 When a `deps-vuln` fix is **blocked on bundle**, keep the Issue open and record
 which members/unlock conditions are unmet (see
