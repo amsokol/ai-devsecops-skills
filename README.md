@@ -114,6 +114,10 @@ git commit -m "chore(skills): bump library to v0.1.1"
 Prefer tags over floating `main` for products; the runner may track `main` while
 iterating.
 
+## Contributing
+
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) (new ecosystems checklist).
+
 ## Layout rules
 
 - One topic = one file. Large themes use folders.

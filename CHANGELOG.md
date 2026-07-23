@@ -11,6 +11,7 @@ top; older releases grow downward).
 
 - CI: `scripts/check_catalog_contracts.py` — ecosystem topic completeness,
   prose `POLICY.md` path depth, signal vocabulary
+- `CONTRIBUTING.md` — PR basics + checklist for new ecosystems
 
 ### Changed
 
