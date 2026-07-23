@@ -7,6 +7,11 @@ top; older releases grow downward).
 
 ## Unreleased
 
+### Changed
+
+- CI: pin `actions/checkout` by commit SHA and `markdownlint-cli2@0.23.1`
+
+
 ## 0.1.14 - 2026-07-23
 
 ### Changed
