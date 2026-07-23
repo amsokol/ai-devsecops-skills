@@ -47,9 +47,31 @@ def check_ecosystems() -> list[str]:
     return errors
 
 
+CATALOG_DIRS = (
+    "policy",
+    "gate",
+    "maintain",
+    "scenarios",
+    "scm",
+    "capabilities",
+    "ecosystems",
+    "products",
+)
+
+
+def iter_catalog_md() -> list[Path]:
+    files: list[Path] = []
+    for name in CATALOG_DIRS:
+        base = ROOT / name
+        if not base.is_dir():
+            continue
+        files.extend(sorted(base.rglob("*.md")))
+    return files
+
+
 def check_policy_prose_paths() -> list[str]:
     errors: list[str] = []
-    for md in sorted(ROOT.rglob("*.md")):
+    for md in iter_catalog_md():
         if ".git" in md.parts:
             continue
         text = md.read_text(encoding="utf-8")
