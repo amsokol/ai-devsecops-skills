@@ -7,6 +7,17 @@ top; older releases grow downward).
 
 ## Unreleased
 
+## 0.1.12 - 2026-07-23
+
+### Fixed
+
+- **products/starter** gate template: comment / off-ref `workflow_dispatch`
+  re-dispatch onto PR head so ruleset check `Agent gate (PR review)` attaches
+  to the PR head SHA (pairs with ai-devsecops-cursor **0.3.8**)
+- **scm/github**: document that Actions checks follow workflow `github.sha`
+- **maintain/pr-lifecycle**: after PR create, `gh workflow run agent-gate.yml
+  --ref <head>` failsafe when `pull_request` events were dropped
+
 ## 0.1.11 - 2026-07-23
 
 ### Fixed
