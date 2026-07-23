@@ -35,7 +35,6 @@ Path: Settings → Actions → General → Workflow permissions
 | `CURSOR_API_KEY` | secret | yes |
 | `AGENT_GATE_MODEL` | variable | yes (or `CURSOR_*_MODEL` fallbacks) |
 | `AGENT_MAINTAIN_MODEL` | variable | yes (or fallbacks) |
-| `AGENT_RUNNER_REF` | variable | recommended — runner tag, e.g. `v0.3.4` |
 | `AGENT_GATE_GH_TOKEN` | secret | optional — classic `repo` for resolve threads |
 | `AGENT_WORKFLOW_TOKEN` | secret | for workflow-file bumps — classic **`repo` + `workflow`** |
 | Product tokens (e.g. `BUF_TOKEN`) | secret | as needed for verify |
@@ -45,7 +44,6 @@ gh secret set CURSOR_API_KEY
 gh secret set AGENT_WORKFLOW_TOKEN   # classic PAT: repo + workflow
 gh variable set AGENT_GATE_MODEL --body "composer-2.5"
 gh variable set AGENT_MAINTAIN_MODEL --body "composer-2.5"
-gh variable set AGENT_RUNNER_REF --body "v0.3.4"
 ```
 
 ## 4. Workflows
@@ -60,8 +58,10 @@ Copy templates from [`workflows/`](workflows/) into `.github/workflows/`:
 Replace placeholders:
 
 + `__TARGET_ID__` — product id (matches overlay / `TARGET_ID`)
-+ `__RUNNER_TAG__` — same as `AGENT_RUNNER_REF` (e.g. `v0.3.4`)
++ `__RUNNER_TAG__` — runner release tag in `uses: …@tag` only (e.g. `v0.3.6`)
 + Maintain **toolchain block** — Go/Rust/pnpm/etc. needed for `verify.md`
+
+Do **not** set `AGENT_RUNNER_REF` — the `uses:` tag is the only pin.
 
 Also embed a maintain job on `push` to `main` in product `ci.yml` (same
 permissions + toolchain + `install-agent-runner` pattern).

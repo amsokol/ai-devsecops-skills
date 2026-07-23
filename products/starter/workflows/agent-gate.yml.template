@@ -1,6 +1,6 @@
 # PR gate — thin product wrapper
 #
-# Replace __TARGET_ID__ and __RUNNER_TAG__ (keep AGENT_RUNNER_REF in sync).
+# Replace __TARGET_ID__ and __RUNNER_TAG__ (tag = uses: pin only).
 # Copy to: .github/workflows/agent-gate.yml
 #
 # Job name must stay exactly "Agent gate (PR review)" (ruleset required check).
@@ -78,4 +78,3 @@ jobs:
           target_id: __TARGET_ID__
           mode: ${{ github.event_name == 'workflow_dispatch' && inputs.mode || 'ship' }}
           pr: ${{ inputs.pr || '' }}
-          runner_ref: ${{ vars.AGENT_RUNNER_REF || '__RUNNER_TAG__' }}
