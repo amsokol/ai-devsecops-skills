@@ -8,7 +8,8 @@
 - When Buf CLI is pinned in both `go.mod` `tool` and Bazel
   `buf.toolchains(version = …)`, bump them together unless a hold says
   otherwise.
-- Codegen that breaks opaque APIs / Connect stubs → high-impact; separate PR +
-  human unlock when product policy requires
-  ([`grouping.md`](../../policy/grouping.md)).
+- Codegen / plugin **majors** that break opaque APIs / Connect stubs → Issue +
+  human unlock before routine PR ([`grouping.md`](../../policy/grouping.md));
+  prefer one Issue for the coupled bundle when only human OK remains
+  ([`bundles.md`](../../policy/bundles.md)).
 - Never commit throwaway probe directories under `.tmp/`.

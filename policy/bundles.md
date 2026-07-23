@@ -83,6 +83,24 @@ When any bundle exists:
 
 **Bundle rule:** no member of a blocked bundle may be bumped alone.
 
+## Majors and unlock Issues
+
+Routine **major** bumps need human unlock ([`grouping.md`](grouping.md),
+[`holds.md`](holds.md), [`../maintain/findings.md`](../maintain/findings.md)).
+
+For a **bundle** that includes a major move:
+
+1. **Only human OK left** (all members have cleared targets; quarantine and
+   evidence OK): open **one** `agent` Issue for the **bundle** (stable key =
+   bundle id or shared train). Do not spam one Issue per member.
+2. **Any non-human blocker** remains (sibling quarantine, no safe/cleared
+   version, incomplete unlock evidence, explicit hold on a member): **do not**
+   open a major-unlock Issue. Keep reporting **blocked on bundle** with unmet
+   conditions; open the unlock Issue only when those clear and human OK is the
+   sole remaining gate.
+3. After Issue unlock, ship the **whole** bundle on one routine PR (or security
+   PR when the move is a vuln remediation).
+
 ## Security / advisories
 
 Bundles apply to **security remediations the same way** as routine catalog bumps.

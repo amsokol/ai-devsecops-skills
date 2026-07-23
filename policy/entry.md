@@ -57,7 +57,9 @@ Plus **enabled ecosystem topics** listed in product `POLICY.md` under
   apply quarantine / holds / grouping / bundles on **changed** pins only.
 - **Maintain:** full-repo scan; same quarantine duration as gate; Issues + up to
   two fix tracks (security / routine, never mixed) when `verify.md` passes;
-  reconcile **this checkout only**; never APPROVE product change requests.
+  **deps-policy majors** → Issue + human unlock before routine PR
+  ([`grouping.md`](grouping.md)); reconcile **this checkout only**; never APPROVE
+  product change requests.
 
 Details: scenario skills and `gate/change-review.md` / `maintain/*`.
 

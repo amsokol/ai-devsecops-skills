@@ -40,13 +40,27 @@ Natural-language comments **without** a prefix still count when they clearly
 refer to that pin.
 
 Human unlocks may also appear on the **GitHub Issue** for the finding (label
-`agent`), e.g. `ok — create PR`. Product CI should wake maintain on those
-comments ([`../maintain/issue-wake.md`](../maintain/issue-wake.md)).
+`agent`), e.g. `ok — create PR` / `do it`. Product CI should wake maintain on
+those comments ([`../maintain/issue-wake.md`](../maintain/issue-wake.md)).
+
+## Implicit hold: majors (deps-policy)
+
+Any **major** catalog bump ([`grouping.md`](grouping.md) — Majors) is an
+**implicit hold** until a human unlocks the matching `agent` Issue — even when
+there is no `# agent:` comment on the pin. Product `POLICY.md` may add stricter
+holds; it does not remove this default without a documented exception.
+
+Patch/minor candidates are not implicit holds (still subject to quarantine,
+explicit holds, and bundles).
+
+**Security** (`deps-vuln`) remediations are not routine majors: ship on the
+security track when otherwise allowed ([`../capabilities/deps-vuln.md`](../capabilities/deps-vuln.md)).
 
 ## Rules
 
-- Unmet hold → **blocked** (do not bump that pin; for bundles, block **all**
-  members — [`bundles.md`](../policy/bundles.md)).
+- Unmet hold (explicit or implicit major) → **blocked** for routine ship (do not
+  bump that pin; for bundles, block **all** members —
+  [`bundles.md`](../policy/bundles.md)).
 - Satisfied unlock → may bump under quarantine, grouping, and other policy.
 - Security exception for quarantine must be explicit (`security ok` / named
   advisory). Do not invent exceptions.
