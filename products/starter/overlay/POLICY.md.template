@@ -27,4 +27,6 @@ all topics under that folder (`detect`, `update`, `publish-time`, `advisories`, 
 
 - Gate: which manifests count as “changed pins” for this product (optional).
 - Maintain: any extra scan surfaces (optional).
-- High-impact majors that need human OK (optional).
+- Extra holds / bundles beyond catalog defaults (optional). Catalog already
+  requires Issue + human unlock for **all** deps-policy majors
+  ([`library/policy/grouping.md`](library/policy/grouping.md)).

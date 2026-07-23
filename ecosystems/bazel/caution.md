@@ -9,7 +9,7 @@
   need product unlock evidence — do not treat BCR metadata as covering them.
 - When Buf CLI is also pinned via Go `tool`, keep Bazel `buf.toolchains` aligned
   ([`../bsr/caution.md`](../bsr/caution.md)).
-- Major `rules_*` / Bazel version bumps → separate PR + release notes
+- Major `rules_*` / Bazel version bumps → Issue + human unlock before routine PR
   ([`grouping.md`](../../policy/grouping.md)).
 - **Couplings:** if `*.MODULE.bazel` pulls language locks (`Cargo.lock`,
   `go.mod`, pip `requirements.txt`, …), a bump on that language side is also a

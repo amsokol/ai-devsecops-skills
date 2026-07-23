@@ -85,9 +85,12 @@ Either class may be absent when there is nothing safe to ship.
 
 ### Routine class (`fix/agent-<slug>`)
 
-- Safe dependency bumps that cleared quarantine, holds, and bundle rules
-  (ecosystems listed in product `../../POLICY.md`; see [`grouping.md`](../policy/grouping.md) /
-  [`bundles.md`](../policy/bundles.md))
+- Safe **patch/minor** dependency bumps that cleared quarantine, holds, and
+  bundle rules (ecosystems listed in product `../../POLICY.md`; see
+  [`grouping.md`](../policy/grouping.md) / [`bundles.md`](../policy/bundles.md))
+- **Major** bumps only after human unlock on the matching Issue
+  ([`../policy/grouping.md`](../policy/grouping.md) Majors,
+  [`issue-wake.md`](issue-wake.md)) — never auto-ship majors on a plain scan
 - Small non-security code fixes for findings you opened Issues for
   (`deps-policy`, `code-quality`, …)
 - Do **not** include security remediations (those belong on
@@ -95,11 +98,11 @@ Either class may be absent when there is nothing safe to ship.
 - Default: **one finding → one PR**. Group only when
   [`grouping.md`](../policy/grouping.md) says several share one review story;
   then one branch/slug for the group and `Closes` every Issue in that group.
+  Majors stay separate (one major or one unlocked major bundle per PR).
 
 ### Both classes
 
 - Do **not** mix unrelated refactors
 - Never APPROVE product change requests from maintain
-- Group within a class per [`grouping.md`](../policy/grouping.md) (e.g. majors still
-  separate when high-impact)
+- Group within a class per [`grouping.md`](../policy/grouping.md)
 - Concurrent wakes on different Issues must not supersede each other

@@ -32,14 +32,19 @@ ecosystems listed in `../../POLICY.md`.
 2. Comment pass ([`holds.md`](../policy/holds.md)); discover bundles ([`bundles.md`](../policy/bundles.md)).
 3. Scan per capability skills (deps policy/vuln, code quality/vuln, …).
 4. Cluster findings; open/update Issues with stable keys ([`findings.md`](../maintain/findings.md)).
+   For **deps-policy majors**: open unlock Issues when shippable after human OK
+   alone; skip unlock Issues while bundles have non-human blockers
+   ([`grouping.md`](../policy/grouping.md), [`bundles.md`](../policy/bundles.md)).
 5. Ship: safe verified fixes ([`../maintain/verify.md`](../maintain/verify.md) +
    product [`verify.md`](../products/starter/overlay/verify.md.template),
    [`grouping.md`](../policy/grouping.md)) →
    **security** and/or **routine** fix tracks ([`pr-lifecycle.md`](../maintain/pr-lifecycle.md));
    never mix security with routine in one change request. Security first when both
-   apply. Do **not** ship a lock refresh that introduces pins still inside
-   quarantine ([`quarantine.md`](../policy/quarantine.md)). Reconcile/close Issues when
-   gone on **this** tree.
+   apply. Routine: patch/minor when cleared; **majors only after Issue unlock**
+   (or on issue-wake — [`issue-wake.md`](../maintain/issue-wake.md)). Do **not**
+   ship a lock refresh that introduces pins still inside quarantine
+   ([`quarantine.md`](../policy/quarantine.md)). Reconcile/close Issues when gone on
+   **this** tree.
 6. Report: short headings/lists (not wide tables) + change-request / issue URLs.
    Always include **Coupled bundles** and **Pending quarantine** (use `- none`
    when empty) — newer versions (and blocked lock entries) still inside the

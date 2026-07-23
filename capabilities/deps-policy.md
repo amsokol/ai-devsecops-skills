@@ -23,6 +23,15 @@ bumps, refresh locks). Do not invent ecosystems that are not enabled.
 - Propose bumps only to versions that cleared quarantine, holds, and bundle
   rules; group per [`grouping.md`](../policy/grouping.md). Ship on the **routine**
   class (`fix/agent-<slug>`) only — never batch into a security PR.
+- **Majors** (semver major, Actions major-line jumps, runtime/image majors —
+  [`grouping.md`](../policy/grouping.md)): open/update an Issue per
+  [`../maintain/findings.md`](../maintain/findings.md); **do not** open a routine
+  PR until human unlock on that Issue
+  ([`../maintain/issue-wake.md`](../maintain/issue-wake.md)). Implicit hold:
+  [`../policy/holds.md`](../policy/holds.md). Skip the unlock Issue when a
+  **bundle** still has non-human blockers
+  ([`../policy/bundles.md`](../policy/bundles.md)).
+- **Patch / minor:** may ship when cleared (same as before).
 - After lock refresh, **re-check publish times** for every new/changed lock
   entry. If any remain inside the window, do **not** ship that PR (wait or
   constrain resolution).

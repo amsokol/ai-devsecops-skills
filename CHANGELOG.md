@@ -7,6 +7,16 @@ top; older releases grow downward).
 
 ## Unreleased
 
+### Changed
+
+- **deps-policy / maintain:** catalog default — any **major** bump (semver,
+  Actions major-line floats, runtime/image majors) opens an `agent` Issue and
+  ships a routine PR **only after** human unlock (`issue-wake`). Patch/minor
+  and `deps-vuln` security remediations unchanged. Skip major-unlock Issues when
+  a bundle still has non-human blockers; one Issue per unlockable bundle
+  (`policy/grouping.md`, `holds.md`, `bundles.md`, `maintain/findings.md`,
+  ecosystem cautions).
+
 ## 0.1.15 - 2026-07-23
 
 ### Added

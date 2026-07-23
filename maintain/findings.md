@@ -30,6 +30,33 @@ Create the label if missing.
 - Suggested remediation
 - Quarantine notes when relevant
 
+## Majors (deps-policy unlock Issues)
+
+Catalog default: every **major** routine bump needs an Issue before a fix PR
+([`../policy/grouping.md`](../policy/grouping.md),
+[`../policy/holds.md`](../policy/holds.md)).
+
+**Open / update** an Issue when:
+
+- Target cleared quarantine (and lock re-check would pass), **and**
+- For a **bundle**: every member has a cleared, available target and the only
+  remaining blocker is human approval — **one Issue per bundle**, not one per
+  member ([`../policy/bundles.md`](../policy/bundles.md)).
+
+Body must include: current → target, publish/clear times, why it is major, and
+that a human should comment on **this** Issue to unlock (any clear approval —
+[`issue-wake.md`](issue-wake.md); no magic phrase).
+
+**Do not** open a major-unlock Issue when shipping would still be impossible
+after approval — e.g. sibling still in quarantine, missing registry version,
+unmet bundle evidence, or other non-human hold. Report under **Coupled bundles**
+/ **Pending quarantine** only; revisit when those clear.
+
+**Do not** open a routine major Issue for a bump that is already shipping (or
+about to ship) solely as a `deps-vuln` security remediation.
+
+After unlock, ship on the routine track ([`pr-lifecycle.md`](pr-lifecycle.md)).
+
 ## Fix track
 
 Link remediation PRs by class ([`pr-lifecycle.md`](pr-lifecycle.md)). **One
@@ -73,4 +100,4 @@ Do not close based on another branch or an unmerged fix PR.
 Humans unlock or approve remediation by commenting on the Issue. Product CI
 wakes maintain ([`issue-wake.md`](issue-wake.md)). Treat clear approvals as
 permission to ship that finding when other policy (quarantine, bundles, verify)
-allows.
+allows — including **deps-policy majors** awaiting unlock.
