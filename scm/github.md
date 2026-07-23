@@ -36,6 +36,12 @@ Merge is allowed when the gate **check is green** (runner exit 0, no
 **Decision: Approve**; when APPROVE is impossible, use `COMMENT` state and note
 the limitation — the **check**, not the APPROVE event, is the merge gate.
 
+Actions check runs attach to the **workflow run’s `github.sha`**. Product
+`agent-gate.yml` must run the job named `Agent gate (PR review)` on the **PR
+head commit** (via `pull_request`, or `workflow_dispatch --ref <pr-branch>`).
+Human PR comments re-dispatch onto that branch — do not run the required job
+name from `main` alone (APPROVE can succeed while merge stays `BLOCKED`).
+
 On block: post `REQUEST_CHANGES` (when allowed) and exit non-zero so the check
 fails.
 

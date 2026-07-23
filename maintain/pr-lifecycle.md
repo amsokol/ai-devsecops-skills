@@ -32,10 +32,20 @@ when there is nothing safe to ship for that class.
    not adopted: publish + clears ~time; use `- none` when empty — see
    [`quarantine.md`](../policy/quarantine.md)), **verify surfaces run** (and
    skipped), verify commands + results.
-5. `Closes #N` / equivalent only for Issues this PR actually fixes. Do not close
+5. After **create** (and when `pull_request` workflows may have been missed),
+   failsafe-schedule the gate on the PR head so the ruleset check attaches:
+
+   ```bash
+   PR=<number>
+   REF="$(gh pr view "$PR" --json headRefName --jq .headRefName)"
+   gh workflow run agent-gate.yml --ref "$REF" -f mode=ship -f pr="$PR"
+   ```
+
+   Skip in dry-run. Safe if a `pull_request` run already exists (extra ship).
+6. `Closes #N` / equivalent only for Issues this PR actually fixes. Do not close
    a security Issue from a routine PR (or the reverse).
-6. Never force-push onto an open fix track branch.
-7. Recreate from the default branch only when no open track remains for **that
+7. Never force-push onto an open fix track branch.
+8. Recreate from the default branch only when no open track remains for **that
    branch** and the remote branch must be replaced; comment
    `agent: superseded — recreating track from main` on the old change request
    first.
