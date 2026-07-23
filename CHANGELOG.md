@@ -7,11 +7,24 @@ top; older releases grow downward).
 
 ## Unreleased
 
+### Added
+
+- CI: `scripts/check_catalog_contracts.py` — ecosystem topic completeness,
+  prose `POLICY.md` path depth, signal vocabulary
+
 ### Changed
 
+- Document minimum runner version (**≥ 0.3.12**) in README and `policy/entry.md`
+- CI: pin `actions/checkout` by commit SHA and `markdownlint-cli2@0.23.1`
 - Mark thin ecosystem topics (BSR, Bazel, go-modules advisories) and
   `scm/gitlab.md` as **MVP** so agents do not invent missing procedures
 
+### Fixed
+
+- Correct relative prose paths to product `POLICY.md` in `policy/holds.md` and
+  `ecosystems/go-modules/detect.md`
+- `products/starter/ONBOARD.md`: pin example → **v0.1.14**; release checklist
+  bumps that example on each release
 
 ## 0.1.14 - 2026-07-23
 
