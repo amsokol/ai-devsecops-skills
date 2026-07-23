@@ -90,8 +90,6 @@ jobs:
       - name: Install agent runner
         id: runner
         uses: amsokol/ai-devsecops-cursor/.github/actions/install-agent-runner@__RUNNER_TAG__
-        with:
-          runner_ref: ${{ vars.AGENT_RUNNER_REF || '__RUNNER_TAG__' }}
 
       - name: Agent-maintain dry-run
         if: github.event_name == 'workflow_dispatch' && inputs.mode == 'dry-run'
