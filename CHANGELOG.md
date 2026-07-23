@@ -7,6 +7,12 @@ top; older releases grow downward).
 
 ## Unreleased
 
+### Changed
+
+- Mark thin ecosystem topics (BSR, Bazel, go-modules advisories) and
+  `scm/gitlab.md` as **MVP** so agents do not invent missing procedures
+
+
 ## 0.1.14 - 2026-07-23
 
 ### Changed

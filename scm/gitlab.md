@@ -1,5 +1,7 @@
 # SCM: GitLab
 
+> **MVP / incomplete parity:** GitHub is the primary supported forge (starter templates, ONBOARD, and fuller `scm/github.md`). Treat this file as a thin `glab` sketch — do not invent GitLab workflow features that are not written here.
+
 CLI: `glab`. Change request: **merge request**. Env: `AGENT_MR=<number>`.
 
 ## Gate
