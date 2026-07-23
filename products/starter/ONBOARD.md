@@ -58,10 +58,14 @@ Copy templates from [`workflows/`](workflows/) into `.github/workflows/`:
 Replace placeholders:
 
 + `__TARGET_ID__` — product id (matches overlay / `TARGET_ID`)
-+ `__RUNNER_TAG__` — runner release tag in `uses: …@tag` only (e.g. `v0.3.6`)
++ `__RUNNER_TAG__` — runner release tag in `uses: …@tag` only (e.g. `v0.3.8`)
 + Maintain **toolchain block** — Go/Rust/pnpm/etc. needed for `verify.md`
 
 Do **not** set `AGENT_RUNNER_REF` — the `uses:` tag is the only pin.
+
+Gate template uses dual jobs: comments / off-ref dispatch **retrigger** onto the
+PR head branch; only **`Agent gate (PR review)`** on that head satisfies the
+ruleset check (not a check recorded on `main`).
 
 Also embed a maintain job on `push` to `main` in product `ci.yml` (same
 permissions + toolchain + `install-agent-runner` pattern).
@@ -70,7 +74,7 @@ permissions + toolchain + `install-agent-runner` pattern).
 
 | Workflow | `permissions` |
 | -------- | ------------- |
-| agent-gate | `contents: read`, `pull-requests: write` |
+| agent-gate | `contents: read`, `pull-requests: write`, `actions: write` (re-dispatch onto PR head) |
 | agent-maintain (+ CI maintain job) | `contents: write`, `pull-requests: write`, `issues: write` |
 
 Do **not** add `workflows: write` to `permissions:` — that key is invalid and
