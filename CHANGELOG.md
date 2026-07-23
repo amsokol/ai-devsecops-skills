@@ -9,6 +9,12 @@ top; older releases grow downward).
 
 ### Changed
 
+- Mark thin ecosystem topics (BSR, Bazel, go-modules advisories) and
+  `scm/gitlab.md` as **MVP** so agents do not invent missing procedures
+
+
+### Changed
+
 - CI: pin `actions/checkout` by commit SHA and `markdownlint-cli2@0.23.1`
 
 
