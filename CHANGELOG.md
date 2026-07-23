@@ -7,10 +7,17 @@ top; older releases grow downward).
 
 ## Unreleased
 
+### Fixed
+
+- **maintain/issue-wake**: approval wakes must ship (forbid re-asking for
+  `ok — create PR`); pass `AGENT_WAKE_COMMENT`
+- **github-actions**: major action bumps ≠ automatic human-OK hold (only when
+  product POLICY / `agent:` hold says so)
+
 ### Changed
 
 - **products/starter**: pin runner only via `uses: …@tag` (drop
-  `AGENT_RUNNER_REF` / `runner_ref`; pairs with ai-devsecops-cursor **0.3.6**)
+  `AGENT_RUNNER_REF` / `runner_ref`; pairs with ai-devsecops-cursor **0.3.7**)
 - **products/starter**: gate template uses composite `run-product-agent-gate`
   (not `workflow_call`) so ruleset check stays `Agent gate (PR review)`
 

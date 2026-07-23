@@ -56,6 +56,7 @@ jobs:
       GIT_COMMITTER_NAME: agent
       GIT_COMMITTER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
       AGENT_WAKE_ISSUE: ${{ github.event.issue.number }}
+      AGENT_WAKE_COMMENT: ${{ github.event.comment.body }}
     steps:
       - name: Check secrets and vars
         run: |

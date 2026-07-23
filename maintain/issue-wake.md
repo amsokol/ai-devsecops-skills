@@ -26,32 +26,56 @@ Job `if` (conceptually):
 On `issue_comment`, always **ship** (not dry-run). Bot comments must not
 re-trigger (avoids loops).
 
-Pass context into the agent when possible:
+Pass context into the agent (runner injects these into the prompt):
 
 | Env | Meaning |
 | --- | ------- |
-| `AGENT_WAKE_ISSUE` | Issue number that received the comment |
-| `AGENT_WAKE_COMMENT` | optional short pointer / URL |
+| `AGENT_WAKE_ISSUE` | Issue number that received the comment (**required** on wake) |
+| `AGENT_WAKE_COMMENT` | Verbatim body of the human comment (`github.event.comment.body`) |
 
 ## Agent behavior when woken
 
-1. Load the wake Issue (and its comment thread), including the latest human
-   comment.
-2. Treat clear approvals as unlock for **that** finding, e.g. `ok`, `LGTM`,
-   `approved`, `create PR`, `go ahead`, `ship it` (natural language counts).
-3. Prefer remediating the wake Issue on the correct fix track
-   ([`pr-lifecycle.md`](pr-lifecycle.md)); still run a normal maintain pass
-   (scan / reconcile) so other clear findings are not ignored.
+When runtime facts include **ISSUE WAKE** / `AGENT_WAKE_ISSUE`:
+
+1. Load that Issue and its comment thread (the wake comment is already in
+   runtime facts when `AGENT_WAKE_COMMENT` is set).
+2. **Any clear approval is unlock** for **that Issue’s finding**, including
+   (case-insensitive, punctuation optional):
+
+   - `ok`
+   - `LGTM`
+   - `approved`
+   - `create PR` / `create the PR`
+   - `approved. create PR`
+   - `ok — create PR` / `ok - create PR`
+   - `go ahead` / `ship it` / `do it`
+
+   Natural language that clearly authorizes shipping counts. Do **not** require
+   one magic spelling.
+3. **Ship** that finding on the correct fix track
+   ([`pr-lifecycle.md`](pr-lifecycle.md)) when quarantine, bundles, and verify
+   allow. Still run a normal maintain pass for other clear findings.
 4. Reply on the Issue with a short status (`agent: …`) when you open/update a
-   PR or when you still cannot ship (hold unmet, quarantine, verify fail).
+   PR **or** when a *different* hard block remains (name it: quarantine clear
+   time, unmet bundle condition, verify failure).
+
+### Forbidden after an approval wake
+
+- Claiming “major needs human OK” / “needs human approval” for the **wake**
+  Issue after the human already approved.
+- Asking the human to re-comment `ok — create PR` (or any other phrase) when
+  they already approved in the wake comment.
+- Ignoring `AGENT_WAKE_ISSUE` and doing only a generic scan.
 
 Gate (`pr_gate`) must **not** treat plain Issue comments as review work —
 only PR conversation / review threads.
 
 ## Human UX
 
-Comment on the **Issue** (label `agent`), not only on a closed PR. Example:
+Comment on the **Issue** (label `agent`), not only on a closed PR. Any of:
 
 ```text
-ok — create the PR
+ok — create PR
+approved. create PR
+create PR
 ```
