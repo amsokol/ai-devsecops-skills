@@ -7,4 +7,4 @@
   `go install tool` / run as `go tool …`) — both are direct pins for
   deps-policy / quarantine.
 - Multi-module repos: identify which modules the product enables; do not silently
-  bump every module unless `../../../../POLICY.md` says so.
+  bump every module unless `../../../POLICY.md` says so.
