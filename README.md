@@ -54,6 +54,13 @@ CI: `actions/checkout` with `submodules: true` (or `git submodule update --init`
 Markdown lint runs on every pull request and on pushes to `main`
 (`.github/workflows/ci.yml`).
 
+## Runner compatibility
+
+This catalog release requires runner
+[`ai-devsecops-cursor`](https://github.com/amsokol/ai-devsecops-cursor) **≥ 0.3.12**
+(provides `uv run agent-helpers quarantine|branch`). Do not bump this submodule
+in a product without pinning the runner to a compatible tag.
+
 ## Versions and releases
 
 Consumers pin the library via the **submodule commit SHA**. Releases make that

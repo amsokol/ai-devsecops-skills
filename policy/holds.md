@@ -55,7 +55,7 @@ comments ([`../maintain/issue-wake.md`](../maintain/issue-wake.md)).
 
 ## Workflow integration
 
-1. Discover manifests (product `../../../POLICY.md` ecosystems + ecosystem topics).
+1. Discover manifests (product `../../POLICY.md` ecosystems + ecosystem topics).
 2. Comment pass — holds, unlocks, bundles.
 3. Scan outdated per ecosystem topics.
 4. Reconcile with quarantine ([`quarantine.md`](../policy/quarantine.md)), grouping ([`grouping.md`](../policy/grouping.md)), and
