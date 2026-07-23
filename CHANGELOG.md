@@ -7,6 +7,11 @@ top; older releases grow downward).
 
 ## Unreleased
 
+### Changed
+
+- Document minimum runner version (**≥ 0.3.12**) in README and `policy/entry.md`
+
+
 ## 0.1.14 - 2026-07-23
 
 ### Changed
