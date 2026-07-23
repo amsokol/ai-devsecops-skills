@@ -81,7 +81,9 @@ via PR. Required status check: **Markdown lint**. No bypass actors.
    **new version section prepended** right below `Unreleased` (latest release
    stays near the top; older sections move down). Include the CHANGELOG edit in
    the PR (or a follow-up PR) before tagging.
-3. Tag and publish a GitHub Release from `main` after merge:
+3. Bump the example tag in [`products/starter/ONBOARD.md`](products/starter/ONBOARD.md)
+   (`git checkout vX.Y.Z`) to the release you are about to tag.
+4. Tag and publish a GitHub Release from `main` after merge:
 
 ```bash
 git tag -a v0.1.1 -m "v0.1.1"

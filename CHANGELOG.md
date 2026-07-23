@@ -7,6 +7,12 @@ top; older releases grow downward).
 
 ## Unreleased
 
+### Fixed
+
+- `products/starter/ONBOARD.md`: pin example → **v0.1.14**; release checklist
+  bumps that example on each release
+
+
 ## 0.1.14 - 2026-07-23
 
 ### Changed
