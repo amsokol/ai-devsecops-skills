@@ -13,6 +13,9 @@ top; older releases grow downward).
   `ok — create PR`); pass `AGENT_WAKE_COMMENT`
 - **github-actions**: major action bumps ≠ automatic human-OK hold (only when
   product POLICY / `agent:` hold says so)
+- **scm/github** + starter: `workflows: write` is **not** a valid Actions
+  `permissions` key — use classic PAT `AGENT_WORKFLOW_TOKEN` (`repo` +
+  `workflow`) on maintain checkout instead
 
 ### Changed
 
@@ -20,12 +23,6 @@ top; older releases grow downward).
   `AGENT_RUNNER_REF` / `runner_ref`; pairs with ai-devsecops-cursor **0.3.7**)
 - **products/starter**: gate template uses composite `run-product-agent-gate`
   (not `workflow_call`) so ruleset check stays `Agent gate (PR review)`
-
-### Fixed
-
-- **scm/github** + starter: `workflows: write` is **not** a valid Actions
-  `permissions` key — use classic PAT `AGENT_WORKFLOW_TOKEN` (`repo` +
-  `workflow`) on maintain checkout instead
 
 ### Added
 
