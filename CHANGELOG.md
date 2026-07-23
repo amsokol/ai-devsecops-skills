@@ -7,6 +7,11 @@ top; older releases grow downward).
 
 ## Unreleased
 
+### Changed
+
+- **products/starter**: gate template uses composite `run-product-agent-gate`
+  (not `workflow_call`) so ruleset check stays `Agent gate (PR review)`
+
 ### Fixed
 
 - **scm/github** + starter: `workflows: write` is **not** a valid Actions
@@ -15,8 +20,8 @@ top; older releases grow downward).
 
 ### Added
 
-- **products/starter**: `ONBOARD.md` + `workflows/*.yml.template` (thin gate
-  reusable + maintain + `install-agent-runner`)
+- **products/starter**: `ONBOARD.md` + `workflows/*.yml.template` (thin gate +
+  maintain + `install-agent-runner`)
 
 ## 0.1.10 - 2026-07-23
 

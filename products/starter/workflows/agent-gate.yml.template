@@ -2,6 +2,10 @@
 #
 # Replace __TARGET_ID__ and __RUNNER_TAG__ (keep AGENT_RUNNER_REF in sync).
 # Copy to: .github/workflows/agent-gate.yml
+#
+# Job name must stay exactly "Agent gate (PR review)" (ruleset required check).
+# Use the composite action — not workflow_call — so the check name is not
+# "job / reusable".
 
 name: agent-gate
 
@@ -59,10 +63,19 @@ jobs:
         github.event.pull_request.head.repo.full_name == github.repository &&
         github.event.comment.user.type != 'Bot'
       )
-    uses: amsokol/ai-devsecops-cursor/.github/workflows/reusable-agent-gate.yml@__RUNNER_TAG__
-    with:
-      target_id: __TARGET_ID__
-      mode: ${{ github.event_name == 'workflow_dispatch' && inputs.mode || 'ship' }}
-      pr: ${{ inputs.pr || '' }}
-      runner_ref: ${{ vars.AGENT_RUNNER_REF || '__RUNNER_TAG__' }}
-    secrets: inherit
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    env:
+      CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}
+      AGENT_GATE_MODEL: ${{ vars.AGENT_GATE_MODEL || vars.CURSOR_AGENT_MODEL || vars.CURSOR_REV_MODEL || vars.CURSOR_VUL_MODEL || vars.CURSOR_DEP_MODEL }}
+      AGENT_SCM: github
+      GH_TOKEN: ${{ github.token }}
+      AGENT_GATE_GH_TOKEN: ${{ secrets.AGENT_GATE_GH_TOKEN || secrets.AGENT_GH_TOKEN }}
+    steps:
+      - name: Run product agent-gate
+        uses: amsokol/ai-devsecops-cursor/.github/actions/run-product-agent-gate@__RUNNER_TAG__
+        with:
+          target_id: __TARGET_ID__
+          mode: ${{ github.event_name == 'workflow_dispatch' && inputs.mode || 'ship' }}
+          pr: ${{ inputs.pr || '' }}
+          runner_ref: ${{ vars.AGENT_RUNNER_REF || '__RUNNER_TAG__' }}
