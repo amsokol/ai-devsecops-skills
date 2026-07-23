@@ -22,3 +22,6 @@ jobs:
 
       - name: Markdown links
         run: python3 scripts/check_md_links.py
+
+      - name: Catalog contracts
+        run: python3 scripts/check_catalog_contracts.py
