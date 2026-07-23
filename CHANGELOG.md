@@ -7,6 +7,11 @@ top; older releases grow downward).
 
 ## Unreleased
 
+### Added
+
+- `CONTRIBUTING.md` — PR basics + checklist for new ecosystems
+
+
 ## 0.1.14 - 2026-07-23
 
 ### Changed
