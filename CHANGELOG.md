@@ -15,6 +15,7 @@ top; older releases grow downward).
 ### Changed
 
 - Document minimum runner version (**≥ 0.3.12**) in README and `policy/entry.md`
+- CI: pin `actions/checkout` by commit SHA and `markdownlint-cli2@0.23.1`
 
 ### Fixed
 
