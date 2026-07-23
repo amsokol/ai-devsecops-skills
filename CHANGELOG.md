@@ -7,6 +7,8 @@ top; older releases grow downward).
 
 ## Unreleased
 
+## 0.1.15 - 2026-07-23
+
 ### Added
 
 - CI: `scripts/check_catalog_contracts.py` — ecosystem topic completeness,
@@ -24,8 +26,8 @@ top; older releases grow downward).
 
 - Correct relative prose paths to product `POLICY.md` in `policy/holds.md` and
   `ecosystems/go-modules/detect.md`
-- `products/starter/ONBOARD.md`: pin example → **v0.1.14**; release checklist
-  bumps that example on each release
+- `products/starter/ONBOARD.md`: pin example kept current via release checklist
+  (example → **v0.1.15**)
 
 ## 0.1.14 - 2026-07-23
 

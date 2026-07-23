@@ -11,7 +11,7 @@ git submodule add https://github.com/amsokol/ai-devsecops-skills.git \
   .cursor/agent/library
 git submodule update --init --recursive
 # pin a release tag (never float on main)
-cd .cursor/agent/library && git fetch --tags && git checkout v0.1.14
+cd .cursor/agent/library && git fetch --tags && git checkout v0.1.15
 cd -
 git add .cursor/agent/library
 ```
