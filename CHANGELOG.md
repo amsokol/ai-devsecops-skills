@@ -12,7 +12,6 @@ top; older releases grow downward).
 - Correct relative prose paths to product `POLICY.md` in `policy/holds.md` and
   `ecosystems/go-modules/detect.md`
 
-
 ## 0.1.14 - 2026-07-23
 
 ### Changed
