@@ -65,3 +65,7 @@ Details: scenario skills and `gate/change-review.md` / `maintain/*`.
 
 Default rules in [`holds.md`](holds.md). Product `POLICY.md` may add product-only
 override notes; critical and policy FORBIDDEN still need a documented exception.
+
+## Runner requirement
+
+Procedures that call `uv run agent-helpers` need [ai-devsecops-cursor](https://github.com/amsokol/ai-devsecops-cursor) **≥ 0.3.12**. Pin the product runner tag together with this library tag; see README **Runner compatibility**.
