@@ -1,5 +1,7 @@
 # Ecosystem: Bazel (bzlmod)
 
+> **MVP:** thin guidance — do not invent tooling, timestamps, or CVEs beyond what this file states; prefer wait / report gaps.
+
 ## Publish time (quarantine)
 
 BCR does not always expose upload times in `metadata.json`. When publish time is

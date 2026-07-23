@@ -16,6 +16,8 @@ top; older releases grow downward).
 
 - Document minimum runner version (**≥ 0.3.12**) in README and `policy/entry.md`
 - CI: pin `actions/checkout` by commit SHA and `markdownlint-cli2@0.23.1`
+- Mark thin ecosystem topics (BSR, Bazel, go-modules advisories) and
+  `scm/gitlab.md` as **MVP** so agents do not invent missing procedures
 
 ### Fixed
 
