@@ -7,6 +7,12 @@ top; older releases grow downward).
 
 ## Unreleased
 
+### Added
+
+- CI: `scripts/check_catalog_contracts.py` — ecosystem topic completeness,
+  prose `POLICY.md` path depth, signal vocabulary
+
+
 ## 0.1.14 - 2026-07-23
 
 ### Changed
