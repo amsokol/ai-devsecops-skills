@@ -58,7 +58,7 @@ Copy templates from [`workflows/`](workflows/) into `.github/workflows/`:
 Replace placeholders:
 
 + `__TARGET_ID__` — product id (matches overlay / `TARGET_ID`)
-+ `__RUNNER_TAG__` — runner release tag in `uses: …@tag` only (e.g. `v0.3.5`)
++ `__RUNNER_TAG__` — runner release tag in `uses: …@tag` only (e.g. `v0.3.6`)
 + Maintain **toolchain block** — Go/Rust/pnpm/etc. needed for `verify.md`
 
 Do **not** set `AGENT_RUNNER_REF` — the `uses:` tag is the only pin.
