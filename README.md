@@ -54,6 +54,13 @@ CI: `actions/checkout` with `submodules: true` (or `git submodule update --init`
 Markdown lint runs on every pull request and on pushes to `main`
 (`.github/workflows/ci.yml`).
 
+## Runner compatibility
+
+This catalog release requires runner
+[`ai-devsecops-cursor`](https://github.com/amsokol/ai-devsecops-cursor) **≥ 0.3.12**
+(provides `uv run agent-helpers quarantine|branch`). Do not bump this submodule
+in a product without pinning the runner to a compatible tag.
+
 ## Versions and releases
 
 Consumers pin the library via the **submodule commit SHA**. Releases make that
@@ -81,7 +88,9 @@ via PR. Required status check: **Markdown lint**. No bypass actors.
    **new version section prepended** right below `Unreleased` (latest release
    stays near the top; older sections move down). Include the CHANGELOG edit in
    the PR (or a follow-up PR) before tagging.
-3. Tag and publish a GitHub Release from `main` after merge:
+3. Bump the example tag in [`products/starter/ONBOARD.md`](products/starter/ONBOARD.md)
+   (`git checkout vX.Y.Z`) to the release you are about to tag.
+4. Tag and publish a GitHub Release from `main` after merge:
 
 ```bash
 git tag -a v0.1.1 -m "v0.1.1"
