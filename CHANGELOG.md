@@ -7,6 +7,15 @@ top; older releases grow downward).
 
 ## Unreleased
 
+## 0.1.13 - 2026-07-23
+
+### Changed
+
+- **maintain**: fix branches are **per finding** —
+  `fix/agent-<slug>` (routine) / `fix/agent-security-<slug>` (security). Drops
+  shared `fix/agent` / `fix/agent-security` so concurrent Issue wakes no longer
+  supersede each other’s open PRs
+
 ## 0.1.12 - 2026-07-23
 
 ### Fixed

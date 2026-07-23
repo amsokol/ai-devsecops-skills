@@ -4,11 +4,13 @@ How to split dependency updates into reviewable units.
 
 ## Prefer
 
-- **Security fixes on their own track** — `deps-vuln` / `code-vuln` only, minimal
+- **Security fixes on their own class** — `deps-vuln` / `code-vuln` only, minimal
   remediation ([`../maintain/pr-lifecycle.md`](../maintain/pr-lifecycle.md)
-  branch `fix/agent-security`). Ship security before routine in the same run.
-- **Routine catalog / non-security** on the routine track (`fix/agent`) —
-  `deps-policy` patch/minor (and other non-security findings).
+  branch `fix/agent-security-<slug>`). Ship security before routine in the same
+  run. Separate findings → separate branches.
+- **Routine catalog / non-security** on `fix/agent-<slug>` —
+  `deps-policy` patch/minor (and other non-security findings); one finding per
+  PR unless this file allows a shared review group.
 - **Patch / minor** of the same ecosystem together on the **routine** track when
   low-risk and unrelated to a major framework.
 - **One PR per major** of a high-impact package (frameworks, ORMs, HTTP stacks,

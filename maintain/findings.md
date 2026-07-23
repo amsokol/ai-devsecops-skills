@@ -32,14 +32,18 @@ Create the label if missing.
 
 ## Fix track
 
-Link remediation PRs by class ([`pr-lifecycle.md`](pr-lifecycle.md)):
+Link remediation PRs by class ([`pr-lifecycle.md`](pr-lifecycle.md)). **One
+branch per finding** (or per approved group) — never a shared `fix/agent` that
+closes another open agent PR:
 
-| Capability | Track branch |
-| ---------- | ------------ |
-| `deps-vuln`, `code-vuln` | `fix/agent-security` |
-| `deps-policy`, `code-quality`, other non-security | `fix/agent` |
+| Capability | Branch pattern |
+| ---------- | -------------- |
+| `deps-vuln`, `code-vuln` | `fix/agent-security-<slug>` |
+| `deps-policy`, `code-quality`, other non-security | `fix/agent-<slug>` |
 
-A PR may `Closes` only Issues it actually remediates.
+`<slug>` = kebab-case from the Issue stable key (see
+[`pr-lifecycle.md`](pr-lifecycle.md)). A PR may `Closes` only Issues it actually
+remediates.
 
 When a `deps-vuln` fix is **blocked on bundle**, keep the Issue open and record
 which members/unlock conditions are unmet (see
