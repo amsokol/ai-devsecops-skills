@@ -6,12 +6,28 @@ product overlay `quarantine.md` beside this submodule).
 
 How to obtain publish time: ecosystem `publish-time.md` topics.
 
+### Runner helper (mandatory date math)
+
+Do **not** invent clear times or age arithmetic. After you have a publish
+timestamp (or know it is unknown), evaluate with the agent runner:
+
+```bash
+uv run agent-helpers quarantine --published <ISO8601> --days <N>
+# unknown publish time:
+uv run agent-helpers quarantine --unknown --days <N>
+```
+
+Use JSON fields `is_cleared`, `cleared_at`, `pending_line`. Product overlay
+`quarantine.md` supplies **N** (and optional exclusions); the helper only does
+age math — exclusion / security-exception judgment stays in skills.
+
 ## Candidates (versions you might bump **to**)
 
 1. Find publish time using the ecosystem topic.
-2. If `now - published < N` → **wait** (do not bump).
+2. Run `agent-helpers quarantine` with that publish time and **N**. If
+   `is_cleared` is false → **wait** (do not bump).
 3. Prefer the newest version that already cleared the window.
-4. Unknown publish time → do not bump (treat as wait).
+4. Unknown publish time → `--unknown` (treat as wait).
 
 ## Current pins (already in the tree)
 
@@ -56,7 +72,8 @@ or one bullet per item (no wide tables):
 ```
 
 Each bullet: package (ecosystem/surface), version, publish time, **approx clear
-time** (`published + N`). Omit packages already shipped this run.
+time** — prefer `pending_line` from `agent-helpers quarantine` (do not hand-roll
+`published + N`). Omit packages already shipped this run.
 
 **Maintain:** do **not** ship a fix PR whose lock refresh introduces any entry
 still inside the window (same rule as adopting that pin on HEAD). Prefer wait,

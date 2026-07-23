@@ -16,21 +16,27 @@ group) — never a single shared branch that steals another open agent PR.
 | Label | `agent` |
 | Title | `fix(agent): …` |
 
-### Slug
+### Slug / branch (runner helper — mandatory)
 
-- Lowercase kebab-case from the Issue **stable key** (text after `—` in
-  `agent: <capability> — <key>`) or `package-targetversion`
-- Examples: `checkout-v7`, `setup-python-v7`, `ghsa-xxxx-pyyaml`
-- Keep short (≈50 chars); drop filler words
-- One open PR owns that branch; **never** reuse another finding’s branch
+Do **not** hand-roll branch names. From the Issue **stable key** (text after
+`—` in `agent: <capability> — <key>`) or a short group key:
+
+```bash
+uv run agent-helpers branch --class routine --key "<stable key>"
+# → fix/agent-<slug>
+uv run agent-helpers branch --class security --key "<stable key>"
+# → fix/agent-security-<slug>
+```
+
+Examples of keys: `checkout-v7`, `setup-python-v7`, `ghsa-xxxx-pyyaml`. One
+open PR owns that branch; **never** reuse another finding’s branch.
 
 Ship **security first** when both classes have verified fixes in the same run.
 Either class may be absent when there is nothing safe to ship.
 
 ## Workflow (per finding / group)
 
-1. Derive `<slug>` for this finding (or group). Branch =
-   `fix/agent-security-<slug>` or `fix/agent-<slug>`.
+1. Derive the branch with `agent-helpers branch` for this finding (or group).
 2. `git fetch origin`. If an open change request with label `agent` and **this
    branch** exists, merge the default branch into it **before** applying new
    fixes (ship). Do **not** touch other `fix/agent*` branches or close their
