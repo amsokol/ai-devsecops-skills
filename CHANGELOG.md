@@ -10,7 +10,7 @@ top; older releases grow downward).
 ### Changed
 
 - **products/starter**: pin runner only via `uses: …@tag` (drop
-  `AGENT_RUNNER_REF` / `runner_ref`; pairs with ai-devsecops-cursor **0.3.5**)
+  `AGENT_RUNNER_REF` / `runner_ref`; pairs with ai-devsecops-cursor **0.3.6**)
 - **products/starter**: gate template uses composite `run-product-agent-gate`
   (not `workflow_call`) so ruleset check stays `Agent gate (PR review)`
 
