@@ -7,6 +7,8 @@ top; older releases grow downward).
 
 ## Unreleased
 
+## 0.1.16 - 2026-07-23
+
 ### Changed
 
 - **deps-policy / maintain:** catalog default — any **major** bump (semver,
