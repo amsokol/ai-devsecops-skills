@@ -7,6 +7,8 @@ top; older releases grow downward).
 
 ## Unreleased
 
+## 0.1.11 - 2026-07-23
+
 ### Fixed
 
 - **maintain/issue-wake**: approval wakes must ship (forbid re-asking for
