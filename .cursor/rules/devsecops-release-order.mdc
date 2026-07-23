@@ -1,0 +1,15 @@
+---
+description: Release order for ai-devsecops-skills then ai-devsecops-cursor (never reverse)
+alwaysApply: true
+---
+
+# Skills → agent release order
+
+When changing **skills** and the **agent (runner)** together, use this order only:
+
+1. **Skills first** (`amsokol/ai-devsecops-skills`): change → merge to `main` → tag/release new version.
+2. **Then** bump the skills submodule / pin **inside the agent** (`amsokol/ai-devsecops-cursor` → `.cursor/agent/library` @ that tag).
+3. **Only then** change/release the agent (new runner tag).
+4. **Then** product repos (connect, tauri, …): pin runner `@vX.Y.Z` and/or skills submodule.
+
+Never release or pin the agent before the skills version it depends on exists on `main` and is tagged. Reversing this order breaks dogfood (submodule/quarantine/gates) and creates stuck cross-repo PRs.
